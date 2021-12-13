@@ -1,6 +1,6 @@
 {
-  "name": "binance-trading-bot",
-  "version": "0.0.85",
+  "name": "binance-bot",
+  "version": "1.0.0",
   "description": "Binance Auto Trading Bot",
   "scripts": {
     "prepare": "husky install",
@@ -30,7 +30,7 @@
     "Auto Trading Bot",
     "Binance Trading Bot"
   ],
-  "author": "Chris Lee <git@chrislee.kr>",
+  "author": "miteasy <qq478206103@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chrisleekr/binance-traiding-bot/issues"

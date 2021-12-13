@@ -45,7 +45,7 @@ class CoinWrapperBuySignal extends React.Component {
         <React.Fragment key={'coin-wrapper-buy-grid-row-' + symbol + '-' + i}>
           <div className='coin-info-column-grid'>
             <div className='coin-info-column coin-info-column-price'>
-              <div className='coin-info-label'>Grid Trade #{i + 1}</div>
+              <div className='coin-info-label'>买单 #{i + 1}</div>
 
               <div className='coin-info-value'>
                 {buy.openOrders.length === 0 &&
@@ -70,7 +70,7 @@ class CoinWrapperBuySignal extends React.Component {
                         {grid.executed ? (
                           <React.Fragment>
                             <span>
-                              The grid trade #{i + 1} has been executed{' '}
+                              买单#{i + 1} 已成交。{' '}
                               {moment(grid.executedOrder.updateTime).fromNow()}{' '}
                               ({moment(grid.executedOrder.updateTime).format()}
                               ).
@@ -78,16 +78,16 @@ class CoinWrapperBuySignal extends React.Component {
                           </React.Fragment>
                         ) : (
                           <React.Fragment>
-                            The grid trade #{i + 1} has not been executed.{' '}
+                            买单 #{i + 1} 没有成交。{' '}
                             {sell.lastBuyPrice > 0
                               ? i === 0
-                                ? 'This grid trade will not be executed because the last buy price is recorded and the first grid trade is not executed.'
+                                ? `此买单将不会被执行，因为记录了最后的买入价并且第一次买单没有被执行。`
                                 : currentGridTradeIndex === i
-                                ? `Waiting to be executed.`
-                                : `Waiting the grid trade #${i} to be executed.`
+                                ? `等待被执行。`
+                                : `等待买单 #${i} 被执行。`
                               : currentGridTradeIndex === i
-                              ? 'Waiting to be executed.'
-                              : `Waiting the grid trade #${i} to be executed.`}
+                              ? `等待被执行。`
+                              : `等待买单 #${i} 被执行。`}
                           </React.Fragment>
                         )}
                       </Popover.Content>
@@ -134,7 +134,7 @@ class CoinWrapperBuySignal extends React.Component {
                   className='coin-info-label d-flex flex-row justify-content-start'
                   style={{ flex: '0 100%' }}>
                   <span>
-                    &#62; Trigger price (
+                    &#62; 触发买入价格 (
                     {(parseFloat(grid.triggerPercentage - 1) * 100).toFixed(2)}
                     %):
                   </span>
@@ -149,18 +149,17 @@ class CoinWrapperBuySignal extends React.Component {
                       overlay={
                         <Popover id='buy-trigger-price-overlay-right'>
                           <Popover.Content>
-                            The trigger price{' '}
+                            触发价格{' '}
                             <code>
                               {parseFloat(buy.triggerPrice).toFixed(precision)}
                             </code>{' '}
-                            is higher than the ATH buy restricted price{' '}
+                            高于 ATH 买入限制价{' '}
                             <code>
                               {parseFloat(buy.athRestrictionPrice).toFixed(
                                 precision
                               )}
                             </code>
-                            . The bot will not place an order even if the
-                            current price reaches the trigger price.
+                            . 即使当前价格达到触发价格，机器人也不会下订单。
                           </Popover.Content>
                         </Popover>
                       }>
@@ -184,7 +183,7 @@ class CoinWrapperBuySignal extends React.Component {
             )}
             {buy.difference && currentGridTradeIndex === i ? (
               <div className='coin-info-column coin-info-column-price'>
-                <span className='coin-info-label'>Difference to buy:</span>
+                <span className='coin-info-label'>触发买入价差百分比:</span>
                 <HightlightChange
                   className='coin-info-value'
                   id='buy-difference'>
@@ -201,7 +200,7 @@ class CoinWrapperBuySignal extends React.Component {
               }`}>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Trigger price percentage:
+                  - 触发购买价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {((grid.triggerPercentage - 1) * 100).toFixed(2)}%
@@ -209,7 +208,7 @@ class CoinWrapperBuySignal extends React.Component {
               </div>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Stop price percentage:
+                  - 追低关单价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {((grid.stopPercentage - 1) * 100).toFixed(2)}%
@@ -217,7 +216,7 @@ class CoinWrapperBuySignal extends React.Component {
               </div>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Limit price percentage:
+                  - 限价买入挂单价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {((grid.limitPercentage - 1) * 100).toFixed(2)}%
@@ -226,7 +225,7 @@ class CoinWrapperBuySignal extends React.Component {
               {grid.minPurchaseAmount > 0 ? (
                 <div className='coin-info-column coin-info-column-order'>
                   <span className='coin-info-label'>
-                    - Min purchase amount:
+                    - 最低购买金额:
                   </span>
                   <div className='coin-info-value'>
                     {grid.minPurchaseAmount} {quoteAsset}
@@ -236,7 +235,7 @@ class CoinWrapperBuySignal extends React.Component {
                 ''
               )}
               <div className='coin-info-column coin-info-column-order'>
-                <span className='coin-info-label'>- Max purchase amount:</span>
+                <span className='coin-info-label'>- 最大买入金额:</span>
                 <div className='coin-info-value'>
                   {grid.maxPurchaseAmount} {quoteAsset}
                 </div>
@@ -251,8 +250,8 @@ class CoinWrapperBuySignal extends React.Component {
       <div className='coin-info-sub-wrapper'>
         <div className='coin-info-column coin-info-column-title'>
           <div className='coin-info-label'>
-            Buy Signal ({symbolConfiguration.candles.interval}/
-            {symbolConfiguration.candles.limit}){' '}
+            买入信号 (计算区间：{symbolConfiguration.candles.interval}/
+            {symbolConfiguration.candles.limit}个蜡烛){' '}
             <span className='coin-info-value'>
               {symbolConfiguration.buy.enabled ? (
                 <i className='fas fa-toggle-on'></i>
@@ -263,7 +262,7 @@ class CoinWrapperBuySignal extends React.Component {
           </div>
           {symbolConfiguration.buy.enabled === false ? (
             <HightlightChange className='coin-info-message text-muted'>
-              Trading is disabled.
+              已关闭买入.
             </HightlightChange>
           ) : (
             ''
@@ -274,7 +273,7 @@ class CoinWrapperBuySignal extends React.Component {
             {buy.athPrice ? (
               <div className='coin-info-column coin-info-column-price'>
                 <span className='coin-info-label'>
-                  ATH price (
+                  ATH 价格 (
                   {symbolConfiguration.buy.athRestriction.candles.interval}/
                   {symbolConfiguration.buy.athRestriction.candles.limit}):
                 </span>
@@ -291,7 +290,7 @@ class CoinWrapperBuySignal extends React.Component {
                   className='coin-info-label d-flex flex-row justify-content-start'
                   style={{ flex: '0 100%' }}>
                   <span>
-                    &#62; Restricted price (
+                    &#62; 限价(
                     {(
                       parseFloat(
                         symbolConfiguration.buy.athRestriction
@@ -307,13 +306,7 @@ class CoinWrapperBuySignal extends React.Component {
                     overlay={
                       <Popover id='buy-ath-restricted-price-overlay-right'>
                         <Popover.Content>
-                          The bot will place a buy order when the trigger price
-                          is lower than ATH restricted price. Even if the
-                          current price reaches the trigger price, the bot will
-                          not purchase the coin if the current price is higher
-                          than the ATH restricted price. If you don't want to
-                          restrict the purchase with ATH, please disable the ATH
-                          price restriction in the setting.
+                          当触发价格低于 ATH 限制价格时，机器人将下达买单。 即使当前价格达到触发价格，如果当前价格高于 ATH 限制价格，机器人也不会购买硬币。 如果您不想使用ATH限制购买，请在设置中禁用ATH价格限制。
                         </Popover.Content>
                       </Popover>
                     }>
@@ -340,7 +333,7 @@ class CoinWrapperBuySignal extends React.Component {
 
         {buy.highestPrice ? (
           <div className='coin-info-column coin-info-column-price'>
-            <span className='coin-info-label'>Highest price:</span>
+            <span className='coin-info-label'>区间最高价格:</span>
             <HightlightChange className='coin-info-value'>
               {parseFloat(buy.highestPrice).toFixed(precision)}
             </HightlightChange>
@@ -350,7 +343,7 @@ class CoinWrapperBuySignal extends React.Component {
         )}
         {buy.currentPrice ? (
           <div className='coin-info-column coin-info-column-price'>
-            <span className='coin-info-label'>Current price:</span>
+            <span className='coin-info-label'>当前实时价格:</span>
             <HightlightChange className='coin-info-value'>
               {parseFloat(buy.currentPrice).toFixed(precision)}
             </HightlightChange>
@@ -360,7 +353,7 @@ class CoinWrapperBuySignal extends React.Component {
         )}
         {buy.lowestPrice ? (
           <div className='coin-info-column coin-info-column-lowest-price'>
-            <span className='coin-info-label'>Lowest price:</span>
+            <span className='coin-info-label'>区间最低价格:</span>
             <HightlightChange className='coin-info-value'>
               {parseFloat(buy.lowestPrice).toFixed(precision)}
             </HightlightChange>

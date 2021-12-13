@@ -47,7 +47,7 @@ class CoinWrapperSellSignal extends React.Component {
         <React.Fragment key={'coin-wrapper-sell-grid-row-' + symbol + '-' + i}>
           <div className='coin-info-column-grid'>
             <div className='coin-info-column coin-info-column-price'>
-              <span className='coin-info-label'>Grid Trade #{i + 1}</span>
+              <span className='coin-info-label'>卖单 #{i + 1}</span>
 
               <div className='coin-info-value'>
                 {buy.openOrders.length === 0 &&
@@ -71,17 +71,17 @@ class CoinWrapperSellSignal extends React.Component {
                       <Popover.Content>
                         {grid.executed ? (
                           <React.Fragment>
-                            The grid trade #{i + 1} has been executed at{' '}
+                            卖单 #{i + 1} 已被执行{' '}
                             {moment(grid.executedOrder.updateTime).fromNow()} (
                             {moment(grid.executedOrder.updateTime).format()}
                             ).
                           </React.Fragment>
                         ) : (
                           <React.Fragment>
-                            The grid trade #{i + 1} has not been executed.{' '}
+                            卖单 #{i + 1} 没有被执行.{' '}
                             {currentGridTradeIndex === i
-                              ? 'Waiting to be executed.'
-                              : `Waiting the grid trade #${i} to be executed.`}
+                              ? '等待被执行.'
+                              : `等待卖单 #${i} 被执行.`}
                           </React.Fragment>
                         )}
                       </Popover.Content>
@@ -120,7 +120,7 @@ class CoinWrapperSellSignal extends React.Component {
                   className='coin-info-label d-flex flex-row justify-content-start'
                   style={{ flex: '0 100%' }}>
                   <span>
-                    &#62; Trigger price (
+                    &#62; 触发卖出下单价格 (
                     {(parseFloat(grid.triggerPercentage - 1) * 100).toFixed(2)}
                     %):
                   </span>
@@ -134,7 +134,7 @@ class CoinWrapperSellSignal extends React.Component {
             )}
             {sell.difference && currentGridTradeIndex === i ? (
               <div className='coin-info-column coin-info-column-price'>
-                <span className='coin-info-label'>Difference to sell:</span>
+                <span className='coin-info-label'>距离卖出价差百分比:</span>
                 <HightlightChange
                   className='coin-info-value'
                   id='sell-difference'>
@@ -151,7 +151,7 @@ class CoinWrapperSellSignal extends React.Component {
               }`}>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Trigger price percentage:
+                  - 触发卖出价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {((grid.triggerPercentage - 1) * 100).toFixed(2)}%
@@ -159,7 +159,7 @@ class CoinWrapperSellSignal extends React.Component {
               </div>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Stop price percentage:
+                  - 追高关单价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {((grid.stopPercentage - 1) * 100).toFixed(2)}%
@@ -167,7 +167,7 @@ class CoinWrapperSellSignal extends React.Component {
               </div>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Limit price percentage:
+                  - 限价卖出挂单价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {((grid.limitPercentage - 1) * 100).toFixed(2)}%
@@ -175,7 +175,7 @@ class CoinWrapperSellSignal extends React.Component {
               </div>
               <div className='coin-info-column coin-info-column-order'>
                 <span className='coin-info-label'>
-                  - Sell quantity percentage:
+                  - 距离卖出价格百分比:
                 </span>
                 <div className='coin-info-value'>
                   {(grid.quantityPercentage * 100).toFixed(2)}%
@@ -192,7 +192,7 @@ class CoinWrapperSellSignal extends React.Component {
         <div className='coin-info-sub-wrapper'>
           <div className='coin-info-column coin-info-column-title'>
             <div className='coin-info-label'>
-              Sell Signal{' '}
+              卖出信号{' '}
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -200,7 +200,7 @@ class CoinWrapperSellSignal extends React.Component {
                   <i className='fas fa-toggle-off'></i>
                 )}
               </span>{' '}
-              / Stop-Loss{' '}
+              / 止损信号{' '}
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.stopLoss.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -211,7 +211,7 @@ class CoinWrapperSellSignal extends React.Component {
             </div>
             {symbolConfiguration.sell.enabled === false ? (
               <HightlightChange className='coin-info-message text-muted'>
-                Trading is disabled.
+                停止卖出
               </HightlightChange>
             ) : (
               ''
@@ -220,7 +220,7 @@ class CoinWrapperSellSignal extends React.Component {
 
           {sell.currentPrice ? (
             <div className='coin-info-column coin-info-column-price'>
-              <span className='coin-info-label'>Current price:</span>
+              <span className='coin-info-label'>当前价格:</span>
               <HightlightChange className='coin-info-value'>
                 {parseFloat(sell.currentPrice).toFixed(precision)}
               </HightlightChange>
@@ -234,7 +234,7 @@ class CoinWrapperSellSignal extends React.Component {
             isAuthenticated={isAuthenticated}></CoinWrapperSellLastBuyPrice>
           {sell.currentProfit ? (
             <div className='coin-info-column coin-info-column-price'>
-              <span className='coin-info-label'>Profit/Loss:</span>
+              <span className='coin-info-label'>盈利/亏损:</span>
               <HightlightChange className='coin-info-value'>
                 {parseFloat(sell.currentProfit).toFixed(precision)} {quoteAsset}{' '}
                 ({parseFloat(sell.currentProfitPercentage).toFixed(2)}
@@ -251,7 +251,7 @@ class CoinWrapperSellSignal extends React.Component {
               <div className='coin-info-column coin-info-column-price divider'></div>
               <div className='coin-info-column coin-info-column-stop-loss-price'>
                 <span className='coin-info-label'>
-                  Stop-Loss price (
+                  止损价格 (
                   {(
                     (symbolConfiguration.sell.stopLoss.maxLossPercentage - 1) *
                     100
@@ -264,7 +264,7 @@ class CoinWrapperSellSignal extends React.Component {
               </div>
               <div className='coin-info-column coin-info-column-stop-loss-price'>
                 <span className='coin-info-label'>
-                  Difference to Stop-Loss:
+                  距离止损价格:
                 </span>
                 <HightlightChange className='coin-info-value'>
                   {parseFloat(sell.stopLossDifference).toFixed(2)}%
@@ -294,7 +294,7 @@ class CoinWrapperSellSignal extends React.Component {
       <div className='coin-info-sub-wrapper'>
         <div className='coin-info-column coin-info-column-title'>
           <div className='coin-info-label'>
-            Sell Signal{' '}
+            卖出信号{' '}
             <span className='coin-info-value'>
               {symbolConfiguration.sell.enabled ? (
                 <i className='fas fa-toggle-on'></i>
@@ -302,7 +302,7 @@ class CoinWrapperSellSignal extends React.Component {
                 <i className='fas fa-toggle-off'></i>
               )}
             </span>{' '}
-            / Stop-Loss{' '}
+            / 止损{' '}
             {symbolConfiguration.sell.stopLoss.enabled
               ? `(` +
                 (
@@ -321,7 +321,7 @@ class CoinWrapperSellSignal extends React.Component {
           </div>
           {symbolConfiguration.sell.enabled === false ? (
             <HightlightChange className='coin-info-message text-muted'>
-              Trading is disabled.
+              停止卖出
             </HightlightChange>
           ) : (
             ''

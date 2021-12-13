@@ -53,7 +53,7 @@ class SymbolTriggerBuyIcon extends React.Component {
           type='button'
           className='btn btn-sm btn-trigger-grid-trade mr-1 btn-manual-buy'
           onClick={this.handleModalShow}>
-          <i className='fas fa-bolt'></i> Trigger
+          <i className='fas fa-bolt'></i> 闪电买入
         </button>
 
         <Modal show={this.state.showModal} onHide={this.handleModalClose}>
@@ -72,7 +72,7 @@ class SymbolTriggerBuyIcon extends React.Component {
               variant='secondary'
               size='sm'
               onClick={this.handleModalClose}>
-              Close
+              关闭
             </Button>
             <Button
               type='button'
@@ -80,7 +80,7 @@ class SymbolTriggerBuyIcon extends React.Component {
               size='sm'
               className='btn-manual-buy'
               onClick={this.handleDelete}>
-              Trigger Buy
+              买入
             </Button>
           </Modal.Footer>
         </Modal>

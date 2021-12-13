@@ -207,14 +207,13 @@ class SettingIcon extends React.Component {
           size='xl'>
           <Form>
             <Modal.Header className='pt-1 pb-1'>
-              <Modal.Title>Global Settings</Modal.Title>
+              <Modal.Title>全局配置</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <span className='text-muted'>
-                In this modal, you can configure the global configuration. If
-                the symbol has a specific configuration, the change won't impact
-                the symbol. Please make sure you understand what the setting is
-                about before changing the configuration value.
+                这是全局配置模式。
+                更改不会影响已经单独配置的符号。
+                在更改配置值之前，请确保您了解设置的内容。
               </span>
               <Accordion defaultActiveKey='0'>
                 <Card className='mt-1' style={{ overflow: 'visible' }}>
@@ -224,7 +223,7 @@ class SettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Symbols
+                      添加符号
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -280,7 +279,7 @@ class SettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Candle Settings
+                      间隔设置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -291,7 +290,7 @@ class SettingIcon extends React.Component {
                             controlId='field-candles-interval'
                             className='mb-2'>
                             <Form.Label className='mb-0'>
-                              Interval
+                              蜡烛时间单位
                               <OverlayTrigger
                                 trigger='click'
                                 key='interval-overlay'
@@ -335,7 +334,7 @@ class SettingIcon extends React.Component {
                             controlId='field-candles-limit'
                             className='mb-2'>
                             <Form.Label className='mb-0'>
-                              Limit
+                              区间蜡烛数量
                               <OverlayTrigger
                                 trigger='click'
                                 key='limit-overlay'
@@ -382,7 +381,7 @@ class SettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Buy Configurations
+                      买入信号设置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -400,7 +399,7 @@ class SettingIcon extends React.Component {
                                 onChange={this.handleInputChange}
                               />
                               <Form.Check.Label>
-                                Trading Enabled{' '}
+                                交易开关{' '}
                                 <OverlayTrigger
                                   trigger='click'
                                   key='buy-enabled-overlay'
@@ -448,7 +447,7 @@ class SettingIcon extends React.Component {
                                   variant='link'
                                   eventKey='0'
                                   className='p-0 fs-7 text-uppercase'>
-                                  Last buy price removal threshold
+                                  移除最后买入价阈值（单位USDT）
                                 </Accordion.Toggle>
                               </Card.Header>
                               <Accordion.Collapse eventKey='0'>
@@ -481,7 +480,7 @@ class SettingIcon extends React.Component {
                                   variant='link'
                                   eventKey='0'
                                   className='p-0 fs-7 text-uppercase'>
-                                  Buy Restriction with ATH (All Time High)
+                                  使用ATH信号限制买入 (All Time High)
                                 </Accordion.Toggle>
                               </Card.Header>
                               <Accordion.Collapse eventKey='0'>
@@ -502,7 +501,7 @@ class SettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            ATH Buy Restriction Enabled{' '}
+                                            ATH 启用开关{' '}
                                             <OverlayTrigger
                                               trigger='click'
                                               key='buy-ath-restriction-enabled-overlay'
@@ -590,7 +589,7 @@ class SettingIcon extends React.Component {
                                         controlId='field-ath-candles-limit'
                                         className='mb-2'>
                                         <Form.Label className='mb-0'>
-                                          Limit
+                                          时间间隔
                                           <OverlayTrigger
                                             trigger='click'
                                             key='limit-overlay'
@@ -632,7 +631,7 @@ class SettingIcon extends React.Component {
                                         controlId='field-buy-restriction-percentage'
                                         className='mb-2'>
                                         <Form.Label className='mb-0'>
-                                          Restriction price percentage{' '}
+                                          限价百分比{' '}
                                           <OverlayTrigger
                                             trigger='click'
                                             key='interval-overlay'
@@ -697,7 +696,7 @@ class SettingIcon extends React.Component {
                                 <Card.Body className='px-2 py-1'>
                                   <div className='row'>
                                     <div className='col-12'>
-                                      What is{' '}
+                                     什么是{' '}
                                       <a
                                         href='https://www.tradingview.com/symbols/BTCUSDT/technicals/'
                                         target='_blank'
@@ -744,9 +743,7 @@ class SettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Allow buy trigger when
-                                            recommendation is{' '}
-                                            <code>Strong buy</code>{' '}
+                                            当信号为<code>Strong buy</code>{' '}时，允许购买。
                                             <OverlayTrigger
                                               trigger='click'
                                               key='buy-tradingview-when-strong-buy-overlay'
@@ -791,8 +788,7 @@ class SettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Allow buy trigger when
-                                            recommendation is <code>Buy</code>{' '}
+                                           当信号为<code>Buy</code>{' '}时，允许购买。
                                             <OverlayTrigger
                                               trigger='click'
                                               key='buy-tradingview-when-buy-overlay'
@@ -842,7 +838,7 @@ class SettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Sell Configurations
+                        卖出信号设置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -860,7 +856,7 @@ class SettingIcon extends React.Component {
                                 onChange={this.handleInputChange}
                               />
                               <Form.Check.Label>
-                                Trading Enabled{' '}
+                                交易开关{' '}
                                 <OverlayTrigger
                                   trigger='click'
                                   key='sell-enabled-overlay'
@@ -907,7 +903,7 @@ class SettingIcon extends React.Component {
                                   variant='link'
                                   eventKey='0'
                                   className='p-0 fs-7 text-uppercase'>
-                                  Sell Stop-Loss
+                                  卖出止损设置
                                 </Accordion.Toggle>
                               </Card.Header>
                               <Accordion.Collapse eventKey='0'>
@@ -928,7 +924,7 @@ class SettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Stop-Loss Enabled{' '}
+                                            启用开关{' '}
                                             <OverlayTrigger
                                               trigger='click'
                                               key='sell-stop-loss-enabled-overlay'
@@ -962,7 +958,7 @@ class SettingIcon extends React.Component {
                                         controlId='field-sell-stop-loss-max-loss-percentage'
                                         className='mb-2'>
                                         <Form.Label className='mb-0'>
-                                          Max loss percentage{' '}
+                                          最大亏损百分比{' '}
                                           <OverlayTrigger
                                             trigger='click'
                                             key='sell-stop-loss-max-loss-percentage-overlay'
@@ -1016,7 +1012,7 @@ class SettingIcon extends React.Component {
                                         controlId='field-sell-stop-loss-disable-buy-minutes'
                                         className='mb-2'>
                                         <Form.Label className='mb-0'>
-                                          Temporary disable for buying (minutes){' '}
+                                          触发止损后限制买入时间（分钟）{' '}
                                           <OverlayTrigger
                                             trigger='click'
                                             key='sell-stop-loss-disable-buy-minutes-overlay'
@@ -1278,14 +1274,14 @@ class SettingIcon extends React.Component {
                 variant='secondary'
                 size='sm'
                 onClick={() => this.handleModalClose('setting')}>
-                Close
+                直接关闭
               </Button>
               <Button
                 variant='primary'
                 size='sm'
                 disabled={!isValid}
                 onClick={() => this.handleModalShow('confirm')}>
-                Save Changes
+                保存配置
               </Button>
             </Modal.Footer>
           </Form>
@@ -1301,20 +1297,16 @@ class SettingIcon extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Warning: You are about to save the global configuration.
+            警告：您即将保存全局配置。
             <br />
             <br />
-            Do you want to apply the changes for all symbols or just global
-            configuration?
+            您想修改所有符号的配置，还是仅保存全局配置？
             <br />
             <br />
-            If you choose to apply for all symbols, then customised symbol
-            configurations will be removed.
+            如果您选择申请所有符号，则自定义符号配置将被删除。
             <br />
             <br />
-            If you choose to apply the global configuration only, then the
-            symbols that are different from the global configuration will be
-            displayed as customised.
+            如果您选择仅应用全局配置，则与全局配置不同的符号将显示为自定义。
           </Modal.Body>
 
           <Modal.Footer>
@@ -1322,13 +1314,13 @@ class SettingIcon extends React.Component {
               variant='secondary'
               size='sm'
               onClick={() => this.handleModalClose('confirm')}>
-              Cancel
+              取消
             </Button>
             <Button
               variant='success'
               size='sm'
               onClick={() => this.handleFormSubmit({ action: 'apply-to-all' })}>
-              Apply to all symbols
+              应用到所有符号
             </Button>
             <Button
               variant='primary'
@@ -1338,7 +1330,7 @@ class SettingIcon extends React.Component {
                   action: 'apply-to-global-only'
                 })
               }>
-              Apply to global only
+              仅保存全局配置
             </Button>
           </Modal.Footer>
         </Modal>

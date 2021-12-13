@@ -37,11 +37,11 @@ class Footer extends React.Component {
       <div className='app-footer'>
         <div className='footer-wrapper'>
           <div className='footer-column mr-1'>
-            Running Version: <span className='ml-1'>v{packageVersion}</span> (
+            运行版本号: <span className='ml-1'>v{packageVersion}</span> (
             {gitHash})
           </div>
           <div className='footer-column'>
-            Latest Version:
+            最新版本号:
             <a
               href='https://github.com/chrisleekr/binance-trading-bot/releases'
               target='_blank'

@@ -79,12 +79,12 @@ class LockScreen extends React.Component {
               className='binance-img'
               alt='Binance logo'
             />{' '}
-            Binance Trading Bot
+            Binance量化机器人
           </h1>
           {loading ? (
             <div className='text-center w-100'>
               <Spinner animation='border' role='status'>
-                <span className='sr-only'>Loading...</span>
+                <span className='sr-only'>加载中...</span>
               </Spinner>
             </div>
           ) : (
@@ -98,7 +98,7 @@ class LockScreen extends React.Component {
 
                 <Form.Control
                   type='password'
-                  placeholder='Enter your password'
+                  placeholder='输入你的密码'
                   required
                   onChange={this.handlePasswordChange}
                 />

@@ -127,7 +127,7 @@ class FilterIcon extends React.Component {
           onHide={() => this.handleModalClose('filter')}
           size='xl'>
           <Modal.Header closeButton className='pt-1 pb-1'>
-            <Modal.Title>Filter</Modal.Title>
+            <Modal.Title>筛选</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Accordion defaultActiveKey='0'>
@@ -138,7 +138,7 @@ class FilterIcon extends React.Component {
                     variant='link'
                     eventKey='0'
                     className='p-0 fs-7 text-uppercase'>
-                    Search symbols
+                    代币符号搜索
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey='0'>
@@ -147,7 +147,7 @@ class FilterIcon extends React.Component {
                       <Form.Control
                         size='sm'
                         type='search'
-                        placeholder='Enter keyword...'
+                        placeholder='输入代币符号...'
                         defaultValue={searchKeyword}
                         onChange={this.setSearchKeyword}
                       />
@@ -164,7 +164,7 @@ class FilterIcon extends React.Component {
                     variant='link'
                     eventKey='0'
                     className='p-0 fs-7 text-uppercase'>
-                    Sort symbols
+                    排序方式
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey='0'>
@@ -180,14 +180,14 @@ class FilterIcon extends React.Component {
               variant='secondary'
               size='sm'
               onClick={() => this.handleModalClose('filter')}>
-              Close
+              取消
             </Button>
             <Button
               type='button'
               variant='danger'
               size='sm'
               onClick={this.handleApply}>
-              Apply
+              确认
             </Button>
           </Modal.Footer>
         </Modal>

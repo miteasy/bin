@@ -103,7 +103,7 @@ class App extends React.Component {
       console.log('Connection is successfully established.');
       this.toast({
         type: 'success',
-        title: 'Connected to the bot.'
+        title: '连接成功'
       });
       self.setState(prevState => ({
         webSocket: {
@@ -117,7 +117,7 @@ class App extends React.Component {
       let response = {};
       try {
         response = JSON.parse(evt.data);
-      } catch (_e) {}
+      } catch (_e) { }
 
       if (response.type === 'latest') {
         // Set states
@@ -165,7 +165,7 @@ class App extends React.Component {
 
       this.toast({
         type: 'info',
-        title: 'Disconnected from the bot. Reconnecting...'
+        title: '连接断开. 重连中...'
       });
       self.setState(prevState => ({
         webSocket: {

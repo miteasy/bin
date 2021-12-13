@@ -10,7 +10,7 @@ class AccountWrapperAsset extends React.Component {
         <div className='account-wrapper-body'>
           <div className='account-asset-coin'>{balance.asset}</div>
           <div className='account-asset-row'>
-            <span className='account-asset-label'>合计:</span>
+            <span className='account-asset-label'>总量:</span>
             <span className='account-asset-value'>
               {(parseFloat(balance.free) + parseFloat(balance.locked)).toFixed(
                 5
@@ -32,7 +32,7 @@ class AccountWrapperAsset extends React.Component {
           {quoteEstimate !== null ? (
             <div className='account-asset-row'>
               <span className='account-asset-label text-success font-weight-bold'>
-                In {quoteEstimate.quote}:
+                交易中 {quoteEstimate.quote}:
               </span>
               <span className='account-asset-value text-success font-weight-bold'>
                 {parseFloat(quoteEstimate.estimate).toFixed(5)}
