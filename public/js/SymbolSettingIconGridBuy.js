@@ -206,7 +206,7 @@ class SymbolSettingIconGridBuy extends React.Component {
         <React.Fragment key={'grid-row-buy-' + i}>
           <tr>
             <td className='align-middle font-weight-bold' width='90%'>
-              #{i + 1}-买单
+              Grid Trade #{i + 1}
             </td>
             <td className='align-middle text-center'>
               {i !== 0 && grid.executed !== true ? (
@@ -229,11 +229,11 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-trigger-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      触发挂单价（%）{' '}
+                      Trigger percentage{' '}
                       <strong>
                         {i === 0
-                          ? `基于最低价的`
-                          : `基于最后买入价格的`}
+                          ? `based on the lowest price`
+                          : `based on the last buy price`}
                       </strong>{' '}
                       <OverlayTrigger
                         trigger='click'
@@ -306,7 +306,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-stop-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      追低关单价格（%）{' '}
+                      Stop price percentage{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -359,7 +359,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-limit-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      挂单价格（%）{' '}
+                      Limit price percentage{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -411,7 +411,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-min-purchase-amount'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                     最少买入金额{' '}
+                      Min purchase amount{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -464,7 +464,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-max-purchase-amount'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      最大买入金额{' '}
+                      Max purchase amount{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -535,7 +535,7 @@ class SymbolSettingIconGridBuy extends React.Component {
               type='button'
               className='btn btn-sm btn-add-new-grid-trade-buy'
               onClick={this.onAddGridTrade}>
-             添加新的买单
+              Add new grid trade
             </button>
           </div>
         </div>

@@ -22,23 +22,23 @@ class CoinWrapperBalance extends React.Component {
     return (
       <div className='coin-info-sub-wrapper'>
         <div className='coin-info-column coin-info-column-title'>
-          <span className='coin-info-label'>交易对</span>
+          <span className='coin-info-label'>Balance</span>
           <span className='coin-info-value'>{baseAssetBalance.asset}</span>
         </div>
         <div className='coin-info-column coin-info-column-right coin-info-column-balance'>
-          <span className='coin-info-label'>持币数量:</span>
+          <span className='coin-info-label'>Free:</span>
           <HightlightChange className='coin-info-value'>
             {parseFloat(baseAssetBalance.free).toFixed(basePrecision)}
           </HightlightChange>
         </div>
         <div className='coin-info-column coin-info-column-right coin-info-column-balance'>
-          <span className='coin-info-label'>锁定数量:</span>
+          <span className='coin-info-label'>Locked:</span>
           <HightlightChange className='coin-info-value'>
             {parseFloat(baseAssetBalance.locked).toFixed(basePrecision)}
           </HightlightChange>
         </div>
         <div className='coin-info-column coin-info-column-right coin-info-column-balance'>
-          <span className='coin-info-label'>持币预估价值:</span>
+          <span className='coin-info-label'>Estimated Value:</span>
           <HightlightChange className='coin-info-value'>
             {parseFloat(baseAssetBalance.estimatedValue).toFixed(
               quotePrecision

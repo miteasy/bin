@@ -286,8 +286,8 @@ class CoinWrapperTradingView extends React.Component {
       updatedWithinAlert = (
         <div className='coin-info-column coin-info-column-title border-bottom-0 m-0 p-0'>
           <div className='bg-light text-dark w-100 px-1'>
-            数据已经过期 {tradingViewUseOnlyWithin} 分钟. 在数据
-            更新之前不会被使用。
+            The data is older than {tradingViewUseOnlyWithin} minute(s). This
+            data will not be used until it is updated.
           </div>
         </div>
       );
@@ -297,7 +297,7 @@ class CoinWrapperTradingView extends React.Component {
       <div className='coin-info-sub-wrapper'>
         <div className='coin-info-column coin-info-column-title'>
           <div className='coin-info-label'>
-            {' '}
+            Technical Analysis from{' '}
             <a
               href={
                 'https://www.tradingview.com/symbols/' + symbol + '/technicals/'
@@ -305,13 +305,13 @@ class CoinWrapperTradingView extends React.Component {
               rel='noopener noreferrer'
               target='_blank'>
               TradingView
-            </a>指数
+            </a>
           </div>
         </div>
         <div className='d-flex flex-column w-100'>
           <div className='coin-info-column coin-info-column-price'>
             <span className='coin-info-label'>
-              概览 ({tradingView.request.interval})
+              Summary ({tradingView.request.interval})
             </span>
             <HightlightChange
               className={
@@ -335,13 +335,13 @@ class CoinWrapperTradingView extends React.Component {
           <div className='coin-info-column-rows coin-info-column-price'>
             <div className='coin-info-column-row'>
               <div className='coin-info-column w-row-3 text-center text-danger'>
-                卖出
+                Sell
               </div>
               <div className='coin-info-column w-row-3 text-center text-muted'>
-                中性
+                Neutral
               </div>
               <div className='coin-info-column w-row-3 text-center text-success'>
-                买入
+                Buy
               </div>
             </div>
             <div className='coin-info-column-row'>
@@ -373,17 +373,17 @@ class CoinWrapperTradingView extends React.Component {
             }`}>
             <div className='coin-info-sub-wrapper'>
               <div className='coin-info-sub-label'>
-                震荡 (
+                Oscillators (
                 <span className='text-danger mx-1'>
-                  卖出: {tradingView.result.oscillators.SELL}
+                  Sell: {tradingView.result.oscillators.SELL}
                 </span>
                 /
                 <span className='text-muted mx-1'>
-                  中性: {tradingView.result.oscillators.NEUTRAL}
+                  Neutral: {tradingView.result.oscillators.NEUTRAL}
                 </span>
                 /
                 <span className='text-success mx-1'>
-                  买入: {tradingView.result.oscillators.BUY}
+                  Buy: {tradingView.result.oscillators.BUY}
                 </span>
                 )
               </div>
@@ -391,17 +391,17 @@ class CoinWrapperTradingView extends React.Component {
             </div>
             <div className='coin-info-sub-wrapper'>
               <div className='coin-info-sub-label'>
-                移动平均线 (
+                Moving Averages (
                 <span className='text-danger mx-1'>
-                  卖出: {tradingView.result.moving_averages.SELL}
+                  Sell: {tradingView.result.moving_averages.SELL}
                 </span>
                 /
                 <span className='text-muted mx-1'>
-                  中性: {tradingView.result.moving_averages.NEUTRAL}
+                  Neutral: {tradingView.result.moving_averages.NEUTRAL}
                 </span>
                 /
                 <span className='text-success mx-1'>
-                  买入: {tradingView.result.moving_averages.BUY}
+                  Buy: {tradingView.result.moving_averages.BUY}
                 </span>
                 )
               </div>

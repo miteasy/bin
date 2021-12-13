@@ -26,7 +26,7 @@ class Header extends React.Component {
                 className='binance-img'
                 alt='Binance logo'
               />{' '}
-              Binance 量化交易机器人
+              Binance Trading Bot
             </h1>
           </div>
           <div className='header-column header-column-icon'>

@@ -20,10 +20,10 @@ class AppLoading extends React.Component {
               className='binance-img'
               alt='Binance logo'
             />{' '}
-            Binance量化交易机器人
+            Binance Trading Bot
           </h1>
           <Spinner animation='border' role='status'>
-            <span className='sr-only'>加载中...</span>
+            <span className='sr-only'>Loading...</span>
           </Spinner>
         </div>
       </div>

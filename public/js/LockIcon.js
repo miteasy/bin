@@ -24,7 +24,7 @@ class LockIcon extends React.Component {
           type='button'
           className='btn btn-sm btn-link p-0 pl-1'
           onClick={this.handleLock}
-          title='锁定机器人'>
+          title='Lock the bot'>
           <i className='fas fa-lock'></i>
         </button>
       </div>

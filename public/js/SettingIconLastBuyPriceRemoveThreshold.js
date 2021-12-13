@@ -75,7 +75,8 @@ class SettingIconLastBuyPriceRemoveThreshold extends React.Component {
             }
             className='mb-2'>
             <Form.Label className='mb-0'>
-              当买入亏损超过阈值时，移除最低买入价 {quoteAsset} {' '}
+              Remove last buy price for {quoteAsset} when the estimated value is
+              lower than{' '}
               <OverlayTrigger
                 trigger='click'
                 key={'last-buy-remove-threshold-overlay-' + quoteAsset}

@@ -108,7 +108,7 @@ class DustTransferIcon extends React.Component {
             type='button'
             className='btn btn-sm btn-link btn-dust-transfer'
             onClick={() => this.handleModalShow()}>
-            小额资产兑换成BNB
+            Convert small balance to BNB
           </button>
         </div>
         <Modal
@@ -121,7 +121,9 @@ class DustTransferIcon extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <p className='d-block text-muted mb-2'>
-              您可以每 6 小时将估值低于 0.001 BTC 的余额转换为 BNB。 目前无法转换退市的硬币。
+              You can convert balances with a valuation below 0.001 BTC to BNB
+              once every 6 hours. It is not currently possible to convert
+              delisted coins.
             </p>
             <div className='dust-transfer-symbols-parent-wrappers'>
               {loading ? (
@@ -134,7 +136,7 @@ class DustTransferIcon extends React.Component {
                 <div className='dust-transfer-symbols-wrappers'>
                   {_.isEmpty(symbols) ? (
                     <div className='text-center'>
-                      没有资产可以转换。
+                      There is no asset to convert.
                     </div>
                   ) : (
                     <React.Fragment>
@@ -146,7 +148,7 @@ class DustTransferIcon extends React.Component {
                           type='button'
                           className='btn btn-sm btn-primary w-100 btn-dust-transfer-execute'
                           onClick={() => this.executeDustTransfer()}>
-                          转换
+                          Convert
                         </button>
                       </div>
                     </React.Fragment>

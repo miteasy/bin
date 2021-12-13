@@ -62,7 +62,7 @@ class SettingIconBotOptions extends React.Component {
               variant='link'
               eventKey='0'
               className='p-0 fs-7 text-uppercase'>
-              机器人设置
+              Bot Options
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey='0'>
@@ -77,7 +77,7 @@ class SettingIconBotOptions extends React.Component {
                           variant='link'
                           eventKey='0'
                           className='p-0 fs-7 text-uppercase'>
-                          安全验证
+                          Authentication
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
@@ -95,7 +95,7 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    锁定列表{' '}
+                                    Lock List{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-lock-list-overlay'
@@ -131,7 +131,7 @@ class SettingIconBotOptions extends React.Component {
                                     controlId='field-bot-options-lock-after'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      自动锁定时间
+                                      Lock after
                                       <OverlayTrigger
                                         trigger='click'
                                         key='limit-overlay'
@@ -185,7 +185,7 @@ class SettingIconBotOptions extends React.Component {
                           variant='link'
                           eventKey='0'
                           className='p-0 fs-7 text-uppercase'>
-                          自动触发买入
+                          Auto Trigger Buy
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
@@ -203,7 +203,7 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    启用{' '}
+                                    Enabled{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-auto-trigger-buy-enabled-overlay'
@@ -238,7 +238,7 @@ class SettingIconBotOptions extends React.Component {
                                     controlId='field-bot-options-auto-trigger-buy-trigger-after'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      等待触发买单的时间
+                                      Trigger after
                                       <OverlayTrigger
                                         trigger='click'
                                         key='limit-overlay'
@@ -280,7 +280,7 @@ class SettingIconBotOptions extends React.Component {
                             </div>
 
                             <div className='col-12'>
-                              <strong>状况</strong>
+                              <strong>Conditions</strong>
                             </div>
                             <div className='col-12 col-md-6'>
                               <Form.Group
@@ -297,7 +297,8 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    当前价格超过 ATH 限制时重新安排{' '}
+                                    Re-schedule when the current price is over
+                                    ATH restriction{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-auto-trigger-buy-conditions-when-less-than-ath-restriction-overlay'
@@ -336,7 +337,7 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    当操作被禁用时重新安排{' '}
+                                    Re-schedule when the action is disabled{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-auto-trigger-buy-conditions-after-disabled-period-overlay'
@@ -403,7 +404,8 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    推荐时允许自动购买触发<code>Strong buy</code>{' '}
+                                    Allow auto buy trigger when recommendation
+                                    is <code>Strong buy</code>{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-auto-trigger-buy-conditions-tradingview-when-strong-buy-overlay'
@@ -446,7 +448,8 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    推荐时允许自动购买触发<code>Buy</code>{' '}
+                                    Allow auto buy trigger when recommendation
+                                    is <code>Buy</code>{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-auto-trigger-buy-conditions-tradingview-when-buy-overlay'
@@ -487,7 +490,7 @@ class SettingIconBotOptions extends React.Component {
                           variant='link'
                           eventKey='0'
                           className='p-0 fs-7 text-uppercase'>
-                          订单数限制
+                          Order Limit
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
@@ -505,7 +508,7 @@ class SettingIconBotOptions extends React.Component {
                                     onChange={this.handleInputChange}
                                   />
                                   <Form.Check.Label>
-                                    启用{' '}
+                                    Enabled{' '}
                                     <OverlayTrigger
                                       trigger='click'
                                       key='bot-options-order-limit-enabled-overlay'
@@ -535,7 +538,7 @@ class SettingIconBotOptions extends React.Component {
                                     controlId='field-bot-options-order-limit-max-buy-open-orders'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      最大未结买入订单数
+                                      Max. Buy Open Orders
                                       <OverlayTrigger
                                         trigger='click'
                                         key='max-buy-open-orders-overlay'
@@ -577,7 +580,7 @@ class SettingIconBotOptions extends React.Component {
                                     controlId='field-bot-options-order-limit-max-open-trades'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      最大未结交易数
+                                      Max. Open Trades
                                       <OverlayTrigger
                                         trigger='click'
                                         key='max-open-trades-overlay'
@@ -642,7 +645,7 @@ class SettingIconBotOptions extends React.Component {
                                 controlId='field-bot-options-tradingview-interval'
                                 className='mb-2'>
                                 <Form.Label className='mb-0'>
-                                  间隔
+                                  Interval
                                   <OverlayTrigger
                                     trigger='click'
                                     key='bot-options-tradingview-intervaloverlay'
@@ -670,16 +673,16 @@ class SettingIconBotOptions extends React.Component {
                                   value={botOptions.tradingView.interval}
                                   onChange={this.handleInputChange}>
                                   <option value=''>
-                                    使用蜡烛 -&gt; 间隔
+                                    Use candle -&gt; interval
                                   </option>
-                                  <option value='1m'>1分钟</option>
-                                  <option value='5m'>5分钟</option>
-                                  <option value='15m'>15分钟</option>
-                                  <option value='30m'>30分钟</option>
-                                  <option value='1h'>1小时</option>
-                                  <option value='2h'>2小时</option>
-                                  <option value='4h'>4小时</option>
-                                  <option value='1d'>1天</option>
+                                  <option value='1m'>1m</option>
+                                  <option value='5m'>5m</option>
+                                  <option value='15m'>15m</option>
+                                  <option value='30m'>30m</option>
+                                  <option value='1h'>1h</option>
+                                  <option value='2h'>2h</option>
+                                  <option value='4h'>4h</option>
+                                  <option value='1d'>1d</option>
                                 </Form.Control>
                               </Form.Group>
                             </div>
@@ -688,7 +691,7 @@ class SettingIconBotOptions extends React.Component {
                                 controlId='field-bot-options-tradingview-use-only-within'
                                 className='mb-2'>
                                 <Form.Label className='mb-0'>
-                                  仅使用更新时间内的数据
+                                  Use data only updated within
                                   <OverlayTrigger
                                     trigger='click'
                                     key='tradingview-use-only-within-overlay'
@@ -734,7 +737,7 @@ class SettingIconBotOptions extends React.Component {
                                 controlId='field-bot-options-tradingview-if-expires'
                                 className='mb-2'>
                                 <Form.Label className='mb-0'>
-                                  如果数据过期，怎么处理？
+                                  If data passed allowed updated
                                   <OverlayTrigger
                                     trigger='click'
                                     key='bot-options-tradingview-if-expires-overlay'
@@ -780,7 +783,7 @@ class SettingIconBotOptions extends React.Component {
                           variant='link'
                           eventKey='0'
                           className='p-0 fs-7 text-uppercase'>
-                          日志
+                          Logs
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
@@ -791,7 +794,7 @@ class SettingIconBotOptions extends React.Component {
                                 controlId='field-bot-options-logs-delete-after'
                                 className='mb-2'>
                                 <Form.Label className='mb-0'>
-                                  多长时间后删除
+                                  Delete after
                                   <OverlayTrigger
                                     trigger='click'
                                     key='logs-delete-after-overlay'

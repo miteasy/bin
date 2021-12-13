@@ -42,11 +42,11 @@ class CoinWrapperSetting extends React.Component {
           key={'coin-wrapper-setting-buy-grid-row-' + symbol + '-' + i}>
           <div className='coin-info-column-grid'>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>买单 #{i + 1}</span>
+              <span className='coin-info-label'>Grid Trade #{i + 1}</span>
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                触发价（%）{' '}
+                Trigger percentage{' '}
                 <strong>
                   {i === 0 ? `(lowest price)` : `(last buy price)`}
                 </strong>
@@ -127,14 +127,14 @@ class CoinWrapperSetting extends React.Component {
         <div className='coin-info-column coin-info-column-title coin-info-column-title-setting'>
           <div className='coin-info-label'>
             <div className='mr-1'>
-              设置{' '}
+              Setting{' '}
               {this.isCustomised(configurationKeyName) ? (
                 <Badge pill variant='warning'>
-                  独立配置
+                  Customised
                 </Badge>
               ) : (
                 <Badge pill variant='light'>
-                  全局配置
+                  Global
                 </Badge>
               )}
             </div>

@@ -17,7 +17,7 @@ class CoinWrapperSellLastBuyPrice extends React.Component {
     return (
       <div className='coin-info-column coin-info-column-price'>
         <span className='coin-info-label coin-info-label-with-icon'>
-          最后买入价:
+          Last buy price:
           <SymbolEditLastBuyPriceIcon
             symbolInfo={symbolInfo}
             sendWebSocket={sendWebSocket}
