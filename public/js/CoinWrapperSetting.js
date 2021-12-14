@@ -42,13 +42,13 @@ class CoinWrapperSetting extends React.Component {
           key={'coin-wrapper-setting-buy-grid-row-' + symbol + '-' + i}>
           <div className='coin-info-column-grid'>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Grid Trade #{i + 1}</span>
+              <span className='coin-info-label'>买单 #{i + 1}</span>
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Trigger percentage{' '}
+                触底价{' '}
                 <strong>
-                  {i === 0 ? `(lowest price)` : `(last buy price)`}
+                  {i === 0 ? `(最低价)` : `(最后买入价)`}
                 </strong>
                 :
               </span>
@@ -57,25 +57,25 @@ class CoinWrapperSetting extends React.Component {
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Stop percentage:</span>
+              <span className='coin-info-label'>挂单价:</span>
               <div className='coin-info-value'>
                 {(parseFloat(grid.stopPercentage - 1) * 100).toFixed(2)}%
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Limit percentage:</span>
+              <span className='coin-info-label'>委托价:</span>
               <div className='coin-info-value'>
                 {(parseFloat(grid.limitPercentage - 1) * 100).toFixed(2)}%
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Min purchase amount:</span>
+              <span className='coin-info-label'>最小买入金额:</span>
               <div className='coin-info-value'>
                 {grid.minPurchaseAmount} {quoteAsset}
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Max purchase amount:</span>
+              <span className='coin-info-label'>最大买入金额:</span>
               <div className='coin-info-value'>
                 {grid.maxPurchaseAmount} {quoteAsset}
               </div>
@@ -91,28 +91,28 @@ class CoinWrapperSetting extends React.Component {
           key={'coin-wrapper-setting-sell-grid-row-' + symbol + '-' + i}>
           <div className='coin-info-column-grid'>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Grid Trade #{i + 1}</span>
+              <span className='coin-info-label'>卖单 #{i + 1}</span>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Trigger percentage:</span>
+              <span className='coin-info-label'>触顶价:</span>
               <div className='coin-info-value'>
                 {(parseFloat(grid.triggerPercentage - 1) * 100).toFixed(2)}%
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Stop percentage:</span>
+              <span className='coin-info-label'>挂单价:</span>
               <div className='coin-info-value'>
                 {(parseFloat(grid.stopPercentage - 1) * 100).toFixed(2)}%
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Limit percentage:</span>
+              <span className='coin-info-label'>委托价:</span>
               <div className='coin-info-value'>
                 {(parseFloat(grid.limitPercentage - 1) * 100).toFixed(2)}%
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Quantity Percentage:</span>
+              <span className='coin-info-label'>平仓数(%):</span>
               <div className='coin-info-value'>
                 {(parseFloat(grid.quantityPercentage) * 100).toFixed(2)}%
               </div>
@@ -127,14 +127,14 @@ class CoinWrapperSetting extends React.Component {
         <div className='coin-info-column coin-info-column-title coin-info-column-title-setting'>
           <div className='coin-info-label'>
             <div className='mr-1'>
-              Setting{' '}
+              交易配置{' '}
               {this.isCustomised(configurationKeyName) ? (
                 <Badge pill variant='warning'>
-                  Customised
+                  自定义模式
                 </Badge>
               ) : (
                 <Badge pill variant='light'>
-                  Global
+                  全局模式
                 </Badge>
               )}
             </div>
@@ -153,15 +153,15 @@ class CoinWrapperSetting extends React.Component {
         <div
           className={`coin-info-content-setting ${collapsed ? 'd-none' : ''}`}>
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Candles</div>
+            <div className='coin-info-sub-label'>计算区间</div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Interval:</span>
+              <span className='coin-info-label'>K线大小:</span>
               <div className='coin-info-value'>
                 {symbolConfiguration.candles.interval}
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Limit:</span>
+              <span className='coin-info-label'>K线数量:</span>
               <div className='coin-info-value'>
                 {symbolConfiguration.candles.limit}
               </div>
@@ -169,9 +169,9 @@ class CoinWrapperSetting extends React.Component {
           </div>
 
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Buy</div>
+            <div className='coin-info-sub-label'>【买入信号】</div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Trading enabled:</span>
+              <span className='coin-info-label'>启用:</span>
               <span className='coin-info-value'>
                 {symbolConfiguration.buy.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -184,11 +184,11 @@ class CoinWrapperSetting extends React.Component {
           </div>
           <div className='coin-info-sub-wrapper'>
             <div className='coin-info-sub-label'>
-              Buy - Last buy price removal threshold
+              买入 - [最后买入价]移除阈值
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Remove last buy price under:
+                移除[最后买入价]，当价格低于:
               </span>
               <div className='coin-info-value'>
                 {symbolConfiguration.buy.lastBuyPriceRemoveThreshold}{' '}
@@ -198,10 +198,10 @@ class CoinWrapperSetting extends React.Component {
           </div>
           <div className='coin-info-sub-wrapper'>
             <div className='coin-info-sub-label'>
-              Buy - Restriction with ATH
+              买入 - ATH价格限制
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Restriction Enabled:</span>
+              <span className='coin-info-label'>启用:</span>
               <span className='coin-info-value'>
                 {symbolConfiguration.buy.athRestriction.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -211,19 +211,19 @@ class CoinWrapperSetting extends React.Component {
               </span>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Candles - Interval:</span>
+              <span className='coin-info-label'>计算区间 - K线大小:</span>
               <div className='coin-info-value'>
                 {symbolConfiguration.buy.athRestriction.candles.interval}
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Candles - Limit:</span>
+              <span className='coin-info-label'>计算区间 - K线数量:</span>
               <div className='coin-info-value'>
                 {symbolConfiguration.buy.athRestriction.candles.limit}
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Restriction Percentage:</span>
+              <span className='coin-info-label'>限制百分比:</span>
               <div className='coin-info-value'>
                 {(
                   (symbolConfiguration.buy.athRestriction
@@ -236,10 +236,10 @@ class CoinWrapperSetting extends React.Component {
             </div>
           </div>
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Buy - TradingView</div>
+            <div className='coin-info-sub-label'>买入 - TradingView</div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Allow when recommendation is <code>Strong buy</code>:
+                当推荐值为<code>Strong buy</code>时才允许买入:
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.buy.tradingView.whenStrongBuy ? (
@@ -251,7 +251,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Allow when recommendation is <code>Buy</code>:
+                当推荐值为<code>Buy</code>时才允许买入:
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.buy.tradingView.whenBuy ? (
@@ -264,9 +264,9 @@ class CoinWrapperSetting extends React.Component {
           </div>
 
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Sell</div>
+            <div className='coin-info-sub-label'>【卖出信号】</div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Trading enabled:</span>
+              <span className='coin-info-label'>启用:</span>
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -279,9 +279,9 @@ class CoinWrapperSetting extends React.Component {
           </div>
 
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Sell - Stop Loss</div>
+            <div className='coin-info-sub-label'>卖出 - 止损</div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Stop Loss Enabled:</span>
+              <span className='coin-info-label'>启用:</span>
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.stopLoss.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -291,7 +291,7 @@ class CoinWrapperSetting extends React.Component {
               </span>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Max Loss Percentage:</span>
+              <span className='coin-info-label'>最大亏损率:</span>
               <div className='coin-info-value'>
                 {(
                   (symbolConfiguration.sell.stopLoss.maxLossPercentage - 1) *
@@ -301,7 +301,7 @@ class CoinWrapperSetting extends React.Component {
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Temporary disable buy:</span>
+              <span className='coin-info-label'>暂停买入时间:</span>
               <div className='coin-info-value'>
                 {moment
                   .duration(
@@ -312,7 +312,7 @@ class CoinWrapperSetting extends React.Component {
               </div>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Order Type:</span>
+              <span className='coin-info-label'>成交方式:</span>
               <div className='coin-info-value'>
                 {symbolConfiguration.sell.stopLoss.orderType}
               </div>
@@ -320,10 +320,10 @@ class CoinWrapperSetting extends React.Component {
           </div>
 
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Sell - TradingView</div>
+            <div className='coin-info-sub-label'>卖出 - TradingView</div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Force sell when recommendation is <code>Neutral</code>:
+                当建议为<code>Neutral</code>时才允许卖出:
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.tradingView
@@ -336,7 +336,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Force sell when recommendation is <code>Sell</code>:
+              当建议为<code>Sell</code>时才允许卖出:
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.tradingView
@@ -349,7 +349,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Force sell when recommendation is <code>Strong sell</code>:
+              当建议为<code>Strong sell</code>时才允许卖出:
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.sell.tradingView
@@ -364,10 +364,10 @@ class CoinWrapperSetting extends React.Component {
 
           <div className='coin-info-sub-wrapper'>
             <div className='coin-info-sub-label'>
-              Bot Options - Auto Trigger Buy
+              机器人设置 - 自动买入
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Enabled:</span>
+              <span className='coin-info-label'>启用:</span>
               <span className='coin-info-value'>
                 {symbolConfiguration.botOptions.autoTriggerBuy.enabled ? (
                   <i className='fas fa-toggle-on'></i>
@@ -377,7 +377,7 @@ class CoinWrapperSetting extends React.Component {
               </span>
             </div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Trigger after:</span>
+              <span className='coin-info-label'>触发后时间:</span>
               <div className='coin-info-value'>
                 {moment
                   .duration(
@@ -389,7 +389,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Re-schedule when the current price is over ATH restriction:
+              当实时价格超过ATH限制时，重新安排:
               </span>
               <div className='coin-info-value'>
                 {symbolConfiguration.botOptions.autoTriggerBuy.conditions
@@ -402,7 +402,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Re-schedule when the action is disabled:
+              当操作被禁用时，重新安排:
               </span>
               <div className='coin-info-value'>
                 {symbolConfiguration.botOptions.autoTriggerBuy.conditions
@@ -415,7 +415,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Allow when TradingView recommendation is <code>Strong buy</code>
+                当TradingView建议是<code>Strong buy</code>时允许
                 :
               </span>
               <div className='coin-info-value'>
@@ -429,7 +429,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Allow when TradingView recommendation is <code>Buy</code>:
+              当TradingView建议是<code>Buy</code>时允许:
               </span>
               <div className='coin-info-value'>
                 {symbolConfiguration.botOptions.autoTriggerBuy.conditions
@@ -443,9 +443,9 @@ class CoinWrapperSetting extends React.Component {
           </div>
 
           <div className='coin-info-sub-wrapper'>
-            <div className='coin-info-sub-label'>Bot Options - TradingView</div>
+            <div className='coin-info-sub-label'>机器人设置 - TradingView</div>
             <div className='coin-info-column coin-info-column-order'>
-              <span className='coin-info-label'>Interval:</span>
+              <span className='coin-info-label'>K线大小:</span>
               <span className='coin-info-value'>
                 {symbolConfiguration.botOptions.tradingView.interval !== ''
                   ? symbolConfiguration.botOptions.tradingView.interval
@@ -454,7 +454,7 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                Use data only updated within:
+                仅使用在此更新时间之内的建议:
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.botOptions.tradingView.useOnlyWithin}
@@ -462,13 +462,13 @@ class CoinWrapperSetting extends React.Component {
             </div>
             <div className='coin-info-column coin-info-column-order'>
               <span className='coin-info-label'>
-                If data passed "Use data only updated within":
+                如果数据通过 "仅使用在内部更新过的数据":
               </span>
               <span className='coin-info-value'>
                 {symbolConfiguration.botOptions.tradingView.ifExpires ===
                 'ignore'
-                  ? 'Ignore data'
-                  : 'Do not buy'}
+                  ? '忽略数据'
+                  : '不建议买入'}
               </span>
             </div>
           </div>

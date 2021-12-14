@@ -167,15 +167,12 @@ class SymbolSettingIcon extends React.Component {
           size='xl'>
           <Form onSubmit={this.handleFormSubmit}>
             <Modal.Header className='pt-1 pb-1'>
-              <Modal.Title>Customise {symbolInfo.symbol} Settings</Modal.Title>
+              <Modal.Title>自定义设置 {symbolInfo.symbol} </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <span className='text-muted'>
-                In this modal, you can override the global configuration for a
-                specific symbol. Please make sure you understand what the
-                setting is about before changing the configuration value. Note
-                that these are symbol specific settings, which means only this
-                symbol will be applied to settings.
+              在此模式中，您可以覆盖特定符号。请确保您了解设置是关于更改配置值之前的设置。
+              笔记这些是特定于符号的设置，这意味着符号将应用于设置。
               </span>
 
               <Accordion defaultActiveKey='0'>
@@ -186,7 +183,7 @@ class SymbolSettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Candle Settings
+                      计算区间设置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -197,7 +194,7 @@ class SymbolSettingIcon extends React.Component {
                             controlId='field-candles-interval'
                             className='mb-2'>
                             <Form.Label className='mb-0'>
-                              Interval
+                              K线大小
                               <OverlayTrigger
                                 trigger='click'
                                 key='interval-overlay'
@@ -205,8 +202,7 @@ class SymbolSettingIcon extends React.Component {
                                 overlay={
                                   <Popover id='interval-overlay-right'>
                                     <Popover.Content>
-                                      Set candle interval for calculating the
-                                      highest/lowest price.
+                                      会基于K线的间隔大小计算最高价/最低价
                                     </Popover.Content>
                                   </Popover>
                                 }>
@@ -224,15 +220,15 @@ class SymbolSettingIcon extends React.Component {
                               data-state-key='candles.interval'
                               value={symbolConfiguration.candles.interval}
                               onChange={this.handleInputChange}>
-                              <option value='1m'>1m</option>
-                              <option value='3m'>3m</option>
-                              <option value='5m'>5m</option>
-                              <option value='15m'>15m</option>
-                              <option value='30m'>30m</option>
-                              <option value='1h'>1h</option>
-                              <option value='2h'>2h</option>
-                              <option value='4h'>4h</option>
-                              <option value='1d'>1d</option>
+                              <option value='1m'>1分钟</option>
+                              <option value='3m'>3分钟</option>
+                              <option value='5m'>5分钟</option>
+                              <option value='15m'>15分钟</option>
+                              <option value='30m'>30分钟</option>
+                              <option value='1h'>1小时</option>
+                              <option value='2h'>2小时</option>
+                              <option value='4h'>4小时</option>
+                              <option value='1d'>1天</option>
                             </Form.Control>
                           </Form.Group>
                         </div>
@@ -241,7 +237,7 @@ class SymbolSettingIcon extends React.Component {
                             controlId='field-candles-limit'
                             className='mb-2'>
                             <Form.Label className='mb-0'>
-                              Limit{' '}
+                              K线数量{' '}
                               <OverlayTrigger
                                 trigger='click'
                                 key='limit-overlay'
@@ -249,8 +245,7 @@ class SymbolSettingIcon extends React.Component {
                                 overlay={
                                   <Popover id='limit-overlay-right'>
                                     <Popover.Content>
-                                      Set the number of candles to retrieve for
-                                      calculating the highest/lowest price.
+                                      要检索的K线数量，用于计算最高价/最低价
                                     </Popover.Content>
                                   </Popover>
                                 }>
@@ -288,7 +283,7 @@ class SymbolSettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Buy Configurations
+                      买入配置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -306,7 +301,7 @@ class SymbolSettingIcon extends React.Component {
                                 onChange={this.handleInputChange}
                               />
                               <Form.Check.Label>
-                                Trading Enabled{' '}
+                                启用{' '}
                                 <OverlayTrigger
                                   trigger='click'
                                   key='buy-enabled-overlay'
@@ -314,12 +309,7 @@ class SymbolSettingIcon extends React.Component {
                                   overlay={
                                     <Popover id='buy-enabled-overlay-right'>
                                       <Popover.Content>
-                                        If enabled, the bot will purchase the
-                                        coin when it detects the buy signal. If
-                                        disabled, the bot will not purchase the
-                                        coin, but continue to monitoring. When
-                                        the market is volatile, you can disable
-                                        it temporarily.
+                                      如果启用，则bot当它检测到购买信号时买币。如果如果已禁用，则bot将不会买币，但继续监测。市场不稳定的时候，你可以暂时禁用。
                                       </Popover.Content>
                                     </Popover>
                                   }>
@@ -352,7 +342,7 @@ class SymbolSettingIcon extends React.Component {
                                   variant='link'
                                   eventKey='0'
                                   className='p-0 fs-7 text-uppercase'>
-                                  Last buy price removal threshold
+                                   [最后买入价]移除阈值
                                 </Accordion.Toggle>
                               </Card.Header>
                               <Accordion.Collapse eventKey='0'>
@@ -361,8 +351,7 @@ class SymbolSettingIcon extends React.Component {
                                     controlId='field-last-buy-remove-threshold'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      Remove last buy price when the estimated
-                                      value is lower than{' '}
+                                    移除[最后买入价]，当价格低于:{' '}
                                       <OverlayTrigger
                                         trigger='click'
                                         key='last-buy-remove-threshold-overlay'
@@ -370,11 +359,7 @@ class SymbolSettingIcon extends React.Component {
                                         overlay={
                                           <Popover id='last-buy-remove-threshold-overlay-right'>
                                             <Popover.Content>
-                                              Set the last buy price removal
-                                              threshold. When the estimated
-                                              value drops below the threshold,
-                                              the bot will remove the last buy
-                                              price.
+                                            设定上次购买价格门槛估计值下降到阈值以下，机器人将删除最后一次购买价格
                                             </Popover.Content>
                                           </Popover>
                                         }>
@@ -415,7 +400,7 @@ class SymbolSettingIcon extends React.Component {
                               variant='link'
                               eventKey='0'
                               className='p-0 fs-7 text-uppercase'>
-                              Buy Restriction with ATH (All Time High)
+                              买入 - ATH价格限制 (All Time High)
                             </Accordion.Toggle>
                           </Card.Header>
                           <Accordion.Collapse eventKey='0'>
@@ -436,7 +421,7 @@ class SymbolSettingIcon extends React.Component {
                                         onChange={this.handleInputChange}
                                       />
                                       <Form.Check.Label>
-                                        ATH Buy Restriction Enabled{' '}
+                                        ATH启用{' '}
                                         <OverlayTrigger
                                           trigger='click'
                                           key='buy-ath-restriction-enabled-overlay'
@@ -444,19 +429,9 @@ class SymbolSettingIcon extends React.Component {
                                           overlay={
                                             <Popover id='buy-ath-restriction-enabled-overlay-right'>
                                               <Popover.Content>
-                                                If enabled, the bot will
-                                                retrieve ATH (All Time High)
-                                                price of the coin based on the
-                                                interval/candle configuration.
-                                                If the buy trigger price is
-                                                higher than ATH buy restriction
-                                                price, which is calculated by
-                                                ATH Restriction price
-                                                percentage, the bot will not
-                                                place a buy order. The bot will
-                                                place an order when the trigger
-                                                price is lower than ATH buy
-                                                restriction price.
+                                              如果启用，则bot将检索ATH（区间最高价）币的价格基于间隔/蜡烛配置。
+                                              如果购买触发价为高于购买限制价格，由以下公式计算：限制价格百分比，
+                                              则bot将不会下购买订单。机器人会触发时下命令价格比买的便宜限价。
                                               </Popover.Content>
                                             </Popover>
                                           }>
@@ -476,7 +451,7 @@ class SymbolSettingIcon extends React.Component {
                                     controlId='field-ath-candles-interval'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      Interval
+                                      K线大小
                                       <OverlayTrigger
                                         trigger='click'
                                         key='interval-overlay'
@@ -484,9 +459,7 @@ class SymbolSettingIcon extends React.Component {
                                         overlay={
                                           <Popover id='interval-overlay-right'>
                                             <Popover.Content>
-                                              Set candle interval for
-                                              calculating the ATH (All The High)
-                                              price.
+                                              设置ATH (All The High)计算的K线大小
                                             </Popover.Content>
                                           </Popover>
                                         }>
@@ -507,15 +480,15 @@ class SymbolSettingIcon extends React.Component {
                                           .candles.interval
                                       }
                                       onChange={this.handleInputChange}>
-                                      <option value='1m'>1m</option>
-                                      <option value='3m'>3m</option>
-                                      <option value='5m'>5m</option>
-                                      <option value='15m'>15m</option>
-                                      <option value='30m'>30m</option>
-                                      <option value='1h'>1h</option>
-                                      <option value='2h'>2h</option>
-                                      <option value='4h'>4h</option>
-                                      <option value='1d'>1d</option>
+                                      <option value='1m'>1分钟</option>
+                                      <option value='3m'>3分钟</option>
+                                      <option value='5m'>5分钟</option>
+                                      <option value='15m'>15分钟</option>
+                                      <option value='30m'>30分钟</option>
+                                      <option value='1h'>1小时</option>
+                                      <option value='2h'>2小时</option>
+                                      <option value='4h'>4小时</option>
+                                      <option value='1d'>1天</option>
                                     </Form.Control>
                                   </Form.Group>
                                 </div>
@@ -524,7 +497,7 @@ class SymbolSettingIcon extends React.Component {
                                     controlId='field-ath-candles-limit'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      Limit
+                                      K线数量
                                       <OverlayTrigger
                                         trigger='click'
                                         key='limit-overlay'
@@ -532,9 +505,7 @@ class SymbolSettingIcon extends React.Component {
                                         overlay={
                                           <Popover id='limit-overlay-right'>
                                             <Popover.Content>
-                                              Set the number of candles to
-                                              retrieve for calculating the ATH
-                                              (All The High) price.
+                                              设置计算ATH(All The High)价格的K线数量.
                                             </Popover.Content>
                                           </Popover>
                                         }>
@@ -566,7 +537,7 @@ class SymbolSettingIcon extends React.Component {
                                     controlId='field-buy-restriction-percentage'
                                     className='mb-2'>
                                     <Form.Label className='mb-0'>
-                                      Restriction price percentage{' '}
+                                      限制价设置{' '}
                                       <OverlayTrigger
                                         trigger='click'
                                         key='interval-overlay'
@@ -574,13 +545,11 @@ class SymbolSettingIcon extends React.Component {
                                         overlay={
                                           <Popover id='interval-overlay-right'>
                                             <Popover.Content>
-                                              Set the percentage to calculate
-                                              restriction price. i.e. if set{' '}
-                                              <code>0.9</code> and the ATH(All
-                                              Time High) price <code>$110</code>
-                                              , restriction price will be{' '}
-                                              <code>$99</code> for stop limit
-                                              order.
+                                              设置要计算的限价百分比，例如： 如何设置为{' '}
+                                              <code>0.9</code> 此时 ATH(All
+                                              Time High) 价格为 <code>$110</code>
+                                              , 那么限制价格则将{' '}
+                                              <code>$99</code> 设为触发价.
                                             </Popover.Content>
                                           </Popover>
                                         }>
@@ -628,7 +597,7 @@ class SymbolSettingIcon extends React.Component {
                             <Card.Body className='px-2 py-1'>
                               <div className='row'>
                                 <div className='col-12'>
-                                  What is{' '}
+                                  什么是{' '}
                                   <a
                                     href='https://www.tradingview.com/symbols/BTCUSDT/technicals/'
                                     target='_blank'
@@ -643,13 +612,9 @@ class SymbolSettingIcon extends React.Component {
                                     overlay={
                                       <Popover id='bot-options-auto-trigger-buy-conditions-tradingview-when-strong-buy-overlay-right'>
                                         <Popover.Content>
-                                          TradingView is the service that
-                                          provides technical analysis based on
-                                          various indicators such as oscillators
-                                          and moving averages. The bot is
-                                          integrated with TradingView summary
-                                          recommendation to control the buy
-                                          action.
+                                        TradingView是提供基于各种指示器，
+                                        如振荡器和移动平均线。
+                                        机器人是与TradingView摘要集成控制购买的建议行动
                                         </Popover.Content>
                                       </Popover>
                                     }>
@@ -675,8 +640,7 @@ class SymbolSettingIcon extends React.Component {
                                         onChange={this.handleInputChange}
                                       />
                                       <Form.Check.Label>
-                                        Allow buy trigger when recommendation is{' '}
-                                        <code>Strong buy</code>{' '}
+                                        当信号为 <code>Strong buy</code>{' '}时，才允许触发{' '}
                                         <OverlayTrigger
                                           trigger='click'
                                           key='buy-tradingview-when-strong-buy-overlay'
@@ -684,14 +648,9 @@ class SymbolSettingIcon extends React.Component {
                                           overlay={
                                             <Popover id='buy-tradingview-when-strong-buy-overlay-right'>
                                               <Popover.Content>
-                                                If enabled, the bot will use
-                                                TradingView recommendation to
-                                                trigger the buy. If the buy
-                                                trigger price is reached, the
-                                                bot will check TradingView
-                                                recommendation and if it is not
-                                                `Strong buy`, then the bot will
-                                                not place a buy order.
+                                              如果启用，则bot将使用TradingView推荐给触发购买。
+                                              如果买家一旦达到触发价格，则机器人将检查TradingView 建议，
+                                              如果不是`强买`，则机器人将不要下购买订单。
                                               </Popover.Content>
                                             </Popover>
                                           }>
@@ -720,8 +679,7 @@ class SymbolSettingIcon extends React.Component {
                                         onChange={this.handleInputChange}
                                       />
                                       <Form.Check.Label>
-                                        Allow buy trigger when recommendation is{' '}
-                                        <code>Buy</code>{' '}
+                                        当信号为{' '}<code>Buy</code>{' '}时，才允许买入{' '}
                                         <OverlayTrigger
                                           trigger='click'
                                           key='buy-tradingview-when-buy-overlay'
@@ -729,14 +687,9 @@ class SymbolSettingIcon extends React.Component {
                                           overlay={
                                             <Popover id='buy-tradingview-when-buy-overlay-right'>
                                               <Popover.Content>
-                                                If enabled, the bot will use
-                                                TradingView recommendation to
-                                                trigger the buy. If the buy
-                                                trigger price is reached, the
-                                                bot will check TradingView
-                                                recommendation and if it is not
-                                                `Buy`, then the bot will not
-                                                place a buy order.
+                                              如果启用，则bot将使用TradingView推荐给触发购买。
+                                              如果买家一旦达到触发价格，则机器人将检查TradingView建议，
+                                              如果不是`购买`，则bot将不会下购买订单。
                                               </Popover.Content>
                                             </Popover>
                                           }>
@@ -768,7 +721,7 @@ class SymbolSettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Sell Configurations
+                      卖出配置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -786,7 +739,7 @@ class SymbolSettingIcon extends React.Component {
                                 onChange={this.handleInputChange}
                               />
                               <Form.Check.Label>
-                                Trading Enabled{' '}
+                                启用{' '}
                                 <OverlayTrigger
                                   trigger='click'
                                   key='buy-enabled-overlay'
@@ -794,12 +747,9 @@ class SymbolSettingIcon extends React.Component {
                                   overlay={
                                     <Popover id='buy-enabled-overlay-right'>
                                       <Popover.Content>
-                                        If enabled, the bot will sell the coin
-                                        when it detects the sell signal. If
-                                        disabled, the bot will not sell the
-                                        coin, but continue to monitoring. When
-                                        the market is volatile, you can disable
-                                        it temporarily.
+                                      如果启用，机器人将出售币当它检测到卖出信号时。
+                                      如果如果禁用，则bot将不会出售币，但继续监测。
+                                      什么时候市场不稳定，你可以禁用这是暂时的。
                                       </Popover.Content>
                                     </Popover>
                                   }>
@@ -830,7 +780,7 @@ class SymbolSettingIcon extends React.Component {
                                   variant='link'
                                   eventKey='0'
                                   className='p-0 fs-7 text-uppercase'>
-                                  Sell Stop-Loss
+                                  卖出止损设置
                                 </Accordion.Toggle>
                               </Card.Header>
                               <Accordion.Collapse eventKey='0'>
@@ -851,7 +801,7 @@ class SymbolSettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Stop-Loss Enabled{' '}
+                                            启用{' '}
                                             <OverlayTrigger
                                               trigger='click'
                                               key='sell-stop-loss-enabled-overlay'
@@ -859,14 +809,8 @@ class SymbolSettingIcon extends React.Component {
                                               overlay={
                                                 <Popover id='sell-stop-loss-enabled-overlay-right'>
                                                   <Popover.Content>
-                                                    If enabled, the bot will
-                                                    sell the coin when it
-                                                    reaches the configured
-                                                    amount of the loss from the
-                                                    last buy price. You can
-                                                    enable this feature to
-                                                    prevent the loss more than
-                                                    expected.
+                                                  如果启用，则在将到达已配置最后买入价的损失金额，把币卖掉。
+                                                  你可以启用此功能可以防止损失超过预期。
                                                   </Popover.Content>
                                                 </Popover>
                                               }>
@@ -885,7 +829,7 @@ class SymbolSettingIcon extends React.Component {
                                         controlId='field-sell-stop-loss-max-loss-percentage'
                                         className='mb-2'>
                                         <Form.Label className='mb-0'>
-                                          Max loss percentage{' '}
+                                          最大亏损率{' '}
                                           <OverlayTrigger
                                             trigger='click'
                                             key='sell-stop-loss-max-loss-percentage-overlay'
@@ -893,20 +837,13 @@ class SymbolSettingIcon extends React.Component {
                                             overlay={
                                               <Popover id='sell-stop-loss-max-loss-percentage-overlay-right'>
                                                 <Popover.Content>
-                                                  Set maximum loss percentage
-                                                  for stop-loss. i.e. if set{' '}
-                                                  <code>0.80</code>, it means
-                                                  you won't lose than{' '}
-                                                  <code>-20%</code> of the last
-                                                  buy price. When you purchased
-                                                  the coin at <code>$100</code>,
-                                                  the last price will be set as{' '}
-                                                  <code>$100</code>. And then
-                                                  when the current price reaches{' '}
-                                                  <code>$80</code>, the bot will
-                                                  place the{' '}
-                                                  <strong>market order</strong>{' '}
-                                                  to sell all available balance.
+                                                  设置你能接受的最大亏损率，例如： 如果设置{' '}
+                                                  <code>0.80</code>, 意味着你能最大接受{' '}
+                                                  <code>-20%</code> 的亏损。当你在价格 <code>$100</code>时买入,
+                                                  最后买入价为{' '}<code>$100</code>。 那么当价格达到{' '}
+                                                  <code>$80</code>，机器人会挂一个{' '}
+                                                  <strong>市价单</strong>{' '}
+                                                  出售全部持有的币。
                                                 </Popover.Content>
                                               </Popover>
                                             }>
@@ -939,7 +876,7 @@ class SymbolSettingIcon extends React.Component {
                                         controlId='field-sell-stop-loss-disable-buy-minutes'
                                         className='mb-2'>
                                         <Form.Label className='mb-0'>
-                                          Temporary disable for buying (minutes){' '}
+                                        暂停买入时间(分钟){' '}
                                           <OverlayTrigger
                                             trigger='click'
                                             key='sell-stop-loss-disable-buy-minutes-overlay'
@@ -947,12 +884,7 @@ class SymbolSettingIcon extends React.Component {
                                             overlay={
                                               <Popover id='sell-stop-loss-disable-buy-minutes-overlay-right'>
                                                 <Popover.Content>
-                                                  Set for how long to disable
-                                                  buying in minutes after
-                                                  placing a stop-loss order.
-                                                  i.e. if set <code>360</code>,
-                                                  the bot will temporarily
-                                                  disable buying for 6 hours.
+                                                设置当触发止损后，暂停买入多长时间，相当于冷静期的意思。 例如：如果设置为<code>360</code>，机器人将暂时关闭，禁止购买6小时。
                                                 </Popover.Content>
                                               </Popover>
                                             }>
@@ -1019,11 +951,9 @@ class SymbolSettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Force sell at the market price when
-                                            recommendation is{' '}
-                                            <code>Neutral</code> and the profit
-                                            is between <code>0</code> to{' '}
-                                            <code>trigger price</code>{' '}
+                                            当价格为{' '}<code>Neutral</code>时，强制以市价单卖出，
+                                            利润在 <code>0</code> 到{' '}
+                                            <code>触发价</code>之间{' '}
                                             <OverlayTrigger
                                               trigger='click'
                                               key='sell-tradingview-force-sell-over-zero-below-trigger-price-when-neutral-overlay'
@@ -1031,23 +961,9 @@ class SymbolSettingIcon extends React.Component {
                                               overlay={
                                                 <Popover id='sell-tradingview-force-sell-over-zero-below-trigger-price-when-neutral-overlay-right'>
                                                   <Popover.Content>
-                                                    If enabled, the bot will use
-                                                    TradingView recommendation
-                                                    to sell the coin at the
-                                                    market price if the profit
-                                                    is over 0 but under the
-                                                    trigger price. When the
-                                                    condition is met and the
-                                                    TradingView recommendation
-                                                    is `Neutral`, then the bot
-                                                    will place a market sell
-                                                    order immediately. If the
-                                                    auto-buy trigger is enabled,
-                                                    then it will place a buy
-                                                    order later. Note that this
-                                                    action can cause loss if the
-                                                    profit is less than
-                                                    commission.
+                                                  如果启用，则机器人会根据TradingView的建议，以市价单卖出。当利润超过0，但低于触发价格时。
+                                                  当满足条件，且TradingView建议是“Neutral”时，那么机器人会立即下一个市价单卖出。
+                                                  如果启用了自动购买触发器，那么它将稍后会出售购买订单。请注意，如果利润低于佣金，此动作可能会导致损失。
                                                   </Popover.Content>
                                                 </Popover>
                                               }>
@@ -1078,11 +994,8 @@ class SymbolSettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Force sell at the market price when
-                                            recommendation is <code>Sell</code>{' '}
-                                            and the profit is between{' '}
-                                            <code>0</code> to{' '}
-                                            <code>trigger price</code>{' '}
+                                            当建议是 <code>Sell</code>{' '}时，强制以市价单卖出，
+                                            利润在{' '} <code>0</code> 到{' '} <code>触发价</code>之间{' '}
                                             <OverlayTrigger
                                               trigger='click'
                                               key='sell-tradingview-force-sell-over-zero-below-trigger-price-when-sell-overlay'
@@ -1090,22 +1003,10 @@ class SymbolSettingIcon extends React.Component {
                                               overlay={
                                                 <Popover id='sell-tradingview-force-sell-over-zero-below-trigger-price-when-sell-overlay-right'>
                                                   <Popover.Content>
-                                                    If enabled, the bot will use
-                                                    TradingView recommendation
-                                                    to sell the coin at the
-                                                    market price if the profit
-                                                    is over 0 but under the
-                                                    trigger price. When the
-                                                    condition is met and the
-                                                    TradingView recommendation
-                                                    is `Sell`, then the bot will
-                                                    place a market sell order
-                                                    immediately. If the auto-buy
-                                                    trigger is enabled, then it
-                                                    will place a buy order
-                                                    later. Note that this action
-                                                    can cause loss if the profit
-                                                    is less than commission.
+                                                  如果启用，则会使用TradingView建议，当利润超过0，但在触发价以下时，以市价单卖出。
+                                                  当TradingView建议是“Sell”，那么机器人将立即放置市价单。
+                                                  如果启用了自动购买触发器，那么它将稍后会出售购买订单。
+                                                  请注意，如果利润低于佣金，此动作可能会导致损失。
                                                   </Popover.Content>
                                                 </Popover>
                                               }>
@@ -1136,11 +1037,8 @@ class SymbolSettingIcon extends React.Component {
                                             onChange={this.handleInputChange}
                                           />
                                           <Form.Check.Label>
-                                            Force sell at the market price when
-                                            recommendation is{' '}
-                                            <code>Strong sell</code> and the
-                                            profit is between <code>0</code> to{' '}
-                                            <code>trigger price</code>{' '}
+                                          当建议是 <code>Strong sell</code>{' '}时，强制以市价单卖出，
+                                          利润在{' '} <code>0</code> 到{' '} <code>触发价</code>之间{' '}
                                             <OverlayTrigger
                                               trigger='click'
                                               key='sell-tradingview-force-sell-over-zero-below-trigger-price-when-strong-sell-overlay'
@@ -1148,23 +1046,10 @@ class SymbolSettingIcon extends React.Component {
                                               overlay={
                                                 <Popover id='sell-tradingview-force-sell-over-zero-below-trigger-price-when-strong-sell-overlay-right'>
                                                   <Popover.Content>
-                                                    If enabled, the bot will use
-                                                    TradingView recommendation
-                                                    to sell the coin at the
-                                                    market price if the profit
-                                                    is over 0 but under the
-                                                    trigger price. When the
-                                                    condition is met and the
-                                                    TradingView recommendation
-                                                    is `Strong sell`, then the
-                                                    bot will place a market sell
-                                                    order immediately. If the
-                                                    auto-buy trigger is enabled,
-                                                    then it will place a buy
-                                                    order later. Note that this
-                                                    action can cause loss if the
-                                                    profit is less than
-                                                    commission.
+                                                  如果启用，则会使用TradingView建议，当利润超过0，但在触发价以下时，以市价单卖出。
+                                                  当TradingView建议是“Strong sell”，那么机器人将立即放置市价单。
+                                                  如果启用了自动购买触发器，那么它将稍后会出售购买订单。
+                                                  请注意，如果利润低于佣金，此动作可能会导致损失。
                                                   </Popover.Content>
                                                 </Popover>
                                               }>
@@ -1203,7 +1088,7 @@ class SymbolSettingIcon extends React.Component {
                       variant='link'
                       eventKey='0'
                       className='p-0 fs-7 text-uppercase'>
-                      Actions
+                      还原设置
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey='0'>
@@ -1216,7 +1101,7 @@ class SymbolSettingIcon extends React.Component {
                             type='button'
                             className='mr-2'
                             onClick={() => this.handleModalShow('confirm')}>
-                            Reset to Global Setting
+                            重置为全局设置
                           </Button>
 
                           <Button
@@ -1224,7 +1109,7 @@ class SymbolSettingIcon extends React.Component {
                             size='sm'
                             type='button'
                             onClick={() => this.handleModalShow('gridTrade')}>
-                            Reset Grid Trade
+                            重置订单参数
                           </Button>
                         </div>
                       </div>
@@ -1235,8 +1120,7 @@ class SymbolSettingIcon extends React.Component {
             </Modal.Body>
             <Modal.Footer>
               <div className='w-100'>
-                Note that the changes will be displayed in the frontend in the
-                next tick.
+              请注意，更改将会在下一个刷新间隔时，显示在前端。
               </div>
 
               <Button
@@ -1244,10 +1128,10 @@ class SymbolSettingIcon extends React.Component {
                 size='sm'
                 type='button'
                 onClick={() => this.handleModalClose('setting')}>
-                Close
+                关闭
               </Button>
               <Button type='submit' variant='primary' size='sm'>
-                Save Changes
+                保存设置
               </Button>
             </Modal.Footer>
           </Form>
@@ -1259,15 +1143,14 @@ class SymbolSettingIcon extends React.Component {
           size='md'>
           <Modal.Header className='pt-1 pb-1'>
             <Modal.Title>
-              <span className='text-danger'>⚠ Reset to Global Setting</span>
+              <span className='text-danger'>⚠ 重置为全局设置</span>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Warning: You are about to reset the symbol setting to the global
-            setting.
+            警告: 您将要将符号设置重置为全局设置。
             <br />
             <br />
-            Do you want to delete current symbol setting?
+            是否要清空当前的设置？
           </Modal.Body>
 
           <Modal.Footer>
@@ -1275,13 +1158,13 @@ class SymbolSettingIcon extends React.Component {
               variant='secondary'
               size='sm'
               onClick={() => this.handleModalClose('confirm')}>
-              Cancel
+              取消
             </Button>
             <Button
               variant='success'
               size='sm'
               onClick={() => this.resetToGlobalConfiguration()}>
-              Yes
+              确认
             </Button>
           </Modal.Footer>
         </Modal>
@@ -1292,15 +1175,14 @@ class SymbolSettingIcon extends React.Component {
           size='md'>
           <Modal.Header className='pt-1 pb-1'>
             <Modal.Title>
-              <span className='text-danger'>⚠ Reset Grid Trade</span>
+              <span className='text-danger'>⚠ 重置订单参数</span>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            You are about to reset the existing grid trades. If the grid trade
-            is already executed, the execution history will be removed.
+            您将要重置现有的网格交易。如果网格交易已经执行，执行历史将被删除。
             <br />
             <br />
-            Do you want to reset the grid trade history for the selected symbol?
+            是否要重置所选符号的网格交易历史记录？
           </Modal.Body>
 
           <Modal.Footer>
@@ -1308,19 +1190,19 @@ class SymbolSettingIcon extends React.Component {
               variant='secondary'
               size='sm'
               onClick={() => this.handleModalClose('gridTrade')}>
-              Cancel
+              取消
             </Button>
             <Button
               variant='info'
               size='sm'
               onClick={() => this.resetGridTrade('archive')}>
-              Archive and delete
+              存档并删除
             </Button>
             <Button
               variant='danger'
               size='sm'
               onClick={() => this.resetGridTrade('delete')}>
-              Delete without archive
+              删除不存档
             </Button>
           </Modal.Footer>
         </Modal>

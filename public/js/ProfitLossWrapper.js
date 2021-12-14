@@ -204,7 +204,7 @@ class ProfitLossWrapper extends React.Component {
                 <div className='d-flex flex-row justify-content-between'>
                   <div className='flex-column-left'>
                     <div className='btn-profit-loss text-uppercase text-left font-weight-bold'>
-                      <span>Open Trades</span>{' '}
+                      <span>未平仓</span>{' '}
                       <OverlayTrigger
                         trigger='click'
                         key='profit-loss-overlay'
@@ -212,12 +212,7 @@ class ProfitLossWrapper extends React.Component {
                         overlay={
                           <Popover id='profit-loss-overlay-right'>
                             <Popover.Content>
-                              This section displays the estimated profit/loss
-                              for the list of assets that are currently open to
-                              selling with the last buy price recorded. The
-                              calculation is simply adding profit/loss values
-                              for each quote asset. Note that it does not
-                              represent the historical profit/loss.
+                            此部分显示估计的损益对于当前对其开放的资产列表以记录的上次购买价格进行销售。这个计算方法就是简单地将损益值相加对于每个报价资产。请注意，它不是表示历史损益。
                             </Popover.Content>
                           </Popover>
                         }>
@@ -250,7 +245,7 @@ class ProfitLossWrapper extends React.Component {
                     {_.isEmpty(totalPnL) ? (
                       <div className='text-center w-100 m-3'>
                         <Spinner animation='border' role='status'>
-                          <span className='sr-only'>Loading...</span>
+                          <span className='sr-only'>加载中...</span>
                         </Spinner>
                       </div>
                     ) : (
@@ -269,14 +264,14 @@ class ProfitLossWrapper extends React.Component {
                 <div className='d-flex flex-row justify-content-between'>
                   <div className='flex-column-left'>
                     <div className='btn-profit-loss text-uppercase font-weight-bold'>
-                      Closed Trades{' '}
+                      已平仓{' '}
                       <OverlayTrigger
                         trigger='click'
                         key='profit-loss-overlay'
                         placement='bottom'
                         overlay={
                           <Popover id='profit-loss-overlay-right'>
-                            <Popover.Content>...</Popover.Content>
+                            <Popover.Content>已成交的金额盈亏情况，点击可查看交易明细</Popover.Content>
                           </Popover>
                         }>
                         <Button
@@ -295,7 +290,7 @@ class ProfitLossWrapper extends React.Component {
                       }`}
                       onClick={() => this.setSelectedPeriod('d')}
                       title='Day'>
-                      D
+                      天
                     </button>
                     <button
                       type='button'
@@ -304,7 +299,7 @@ class ProfitLossWrapper extends React.Component {
                       }`}
                       onClick={() => this.setSelectedPeriod('w')}
                       title='Week'>
-                      W
+                      周
                     </button>
                     <button
                       type='button'
@@ -313,7 +308,7 @@ class ProfitLossWrapper extends React.Component {
                       }`}
                       onClick={() => this.setSelectedPeriod('m')}
                       title='Month'>
-                      M
+                      月
                     </button>
                     <button
                       type='button'
@@ -322,7 +317,7 @@ class ProfitLossWrapper extends React.Component {
                       }`}
                       onClick={() => this.setSelectedPeriod('a')}
                       title='All'>
-                      All
+                      全部
                     </button>
                   </div>
                 </div>
@@ -334,7 +329,7 @@ class ProfitLossWrapper extends React.Component {
                     {closedTradesLoading === true || _.isEmpty(closedTrades) ? (
                       <div className='text-center w-100 m-3'>
                         <Spinner animation='border' role='status'>
-                          <span className='sr-only'>Loading...</span>
+                          <span className='sr-only'>加载中...</span>
                         </Spinner>
                       </div>
                     ) : (

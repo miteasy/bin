@@ -103,7 +103,7 @@ class App extends React.Component {
       console.log('Connection is successfully established.');
       this.toast({
         type: 'success',
-        title: 'Connected to the bot.'
+        title: '已连接'
       });
       self.setState(prevState => ({
         webSocket: {
@@ -161,11 +161,11 @@ class App extends React.Component {
     };
 
     instance.onclose = () => {
-      console.log('Socket is closed. Reconnect will be attempted in 1 second.');
+      console.log('连接中断，将在1秒后重连。');
 
       this.toast({
         type: 'info',
-        title: 'Disconnected from the bot. Reconnecting...'
+        title: '连接断开. 重连中...'
       });
       self.setState(prevState => ({
         webSocket: {
@@ -321,7 +321,7 @@ class App extends React.Component {
         ) : (
           <div className='app-body app-body-loading'>
             <Spinner animation='border' role='status'>
-              <span className='sr-only'>Loading...</span>
+              <span className='sr-only'>加载中...</span>
             </Spinner>
           </div>
         )}

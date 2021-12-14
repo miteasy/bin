@@ -206,7 +206,7 @@ class SymbolSettingIconGridBuy extends React.Component {
         <React.Fragment key={'grid-row-buy-' + i}>
           <tr>
             <td className='align-middle font-weight-bold' width='90%'>
-              Grid Trade #{i + 1}
+              买单 #{i + 1}
             </td>
             <td className='align-middle text-center'>
               {i !== 0 && grid.executed !== true ? (
@@ -229,11 +229,11 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-trigger-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Trigger percentage{' '}
+                      触底价{'(%)'}{' '}
                       <strong>
                         {i === 0
-                          ? `based on the lowest price`
-                          : `based on the last buy price`}
+                          ? `基于最低价`
+                          : `基于最后买入价`}
                       </strong>{' '}
                       <OverlayTrigger
                         trigger='click'
@@ -251,25 +251,56 @@ class SymbolSettingIconGridBuy extends React.Component {
                             <Popover.Content>
                               {i === 0 ? (
                                 <React.Fragment>
-                                  Set the trigger percentage for buying based on
-                                  the lowest price. i.e. if set{' '}
-                                  <code>1.01</code> and the lowest price is{' '}
-                                  <code>$100</code>, then the bot will buy the
-                                  coin when the current price reaches{' '}
-                                  <code>$101</code>. You cannot set less than 1,
-                                  because it will never reach the trigger price
-                                  unless there is a deep decline before the next
-                                  process.
+                                  <strong>触底价:</strong>当{' '}<code>现价</code>{' '}达到此价格，机器人会挂一个[限价委托订单]买入，说明你认为这个价格是好的买入时机。
+                                  <br />
+                                  <br />
+                                  <strong>触发价:</strong>当{' '}<code>现价</code>{' '}达到{' '}<code>触发价</code>{' '}时，[限价委托订单]将会自动激活生效。
+                                  <br />
+                                  <br />
+                                  <strong>委托价:</strong>当{' '}<code>触发价</code>{' '}被激活以后，而且{' '}<code>现价</code>{' '}达到{' '}<code>委托价</code>{' '}，那么订单会立即成交。
+                                  <br />
+                                  <br />
+                                  <strong>例如:</strong>
+                                  <br />
+                                  最低价:{' '}<code>$500</code>；
+                                  <br />
+                                  触底价:{' '}<code>$500*1.01=$505</code>；
+                                  <br />
+                                  触发价:{' '}<code>$500*1.02=$510</code>；
+                                  <br />
+                                  委托价:{' '}<code>$500*1.019=$509.5</code>；
+                                  <br />
+                                  当{' '}<code>现价</code>{' '}{'>'}{' '}<code>触底价:$505</code>{' '}时，等待。
+                                  <br />
+                                  当{' '}<code>现价</code>{' '}{'≦'}{' '}<code>触底价:$505</code>{' '}时，挂单。
+                                  <br />
+                                  {'▼ 此时跌破最低价：开新单 ▼'}
+                                  <br />
+                                  最低价:{' '}<code>$450</code>；
+                                  <br />
+                                  触底价:{' '}<code>$450*1.01=$454.5</code>；
+                                  <br />
+                                  触发价:{' '}<code>$450*1.02=$459</code>；
+                                  <br />
+                                  委托价:{' '}<code>$450*1.019=$458.55</code>；
+                                  <br />
+                                  {'▲ 此时开始上涨 ▲'}
+                                  <br />
+                                  当{' '}<code>现价</code>{' '}{'≧'}{' '}<code>触底价:$454.5</code>{' '}时，挂单。
+                                  <br />
+                                  当{' '}<code>现价</code>{' '}{'≧'}{' '}<code>触发价:$459</code>{' '}时，激活。
+                                  <br />
+                                  当{' '}<code>现价</code>{' '}{'='}{' '}<code>委托价:$458.55</code>{' '}时，成交。
+                                  <br />
+                                  <br />
+                                  注意：触发系数不能小于1，不然可能永远无法触发，除非市场突然大幅度暴跌。
                                 </React.Fragment>
                               ) : (
                                 <React.Fragment>
-                                  Set the trigger percentage for buying based on
-                                  the last buy price. i.e. if set{' '}
-                                  <code>0.8</code> and the last buy price is{' '}
-                                  <code>$100</code>, then the bot will buy the
-                                  coin when the current price reaches{' '}
-                                  <code>$80</code>. You cannot set higher than
-                                  1.
+                                  根据上次购买价格，设置购买的触发百分比。
+                                  例如-如何设置为{' '}<code>0.8</code>
+                                  最后买入价是{' '}<code>$100</code>,
+                                  当现价到达{' '}<code>$80</code>时会买入. 你不能设置大于1.
                                 </React.Fragment>
                               )}
                             </Popover.Content>
@@ -306,7 +337,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-stop-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Stop price percentage{' '}
+                      触发价{'(%)'}{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -323,10 +354,17 @@ class SymbolSettingIconGridBuy extends React.Component {
                               '-stop-price-percentage-overlay-right'
                             }>
                             <Popover.Content>
-                              Set the percentage to calculate stop price. i.e.
-                              if set <code>1.01</code> and current price{' '}
-                              <code>$100</code>, stop price will be{' '}
-                              <code>$101</code> for stop limit order.
+                              <strong>触发价:</strong>{' '}<code>触发价</code>{' '}是基于区间最低价计算出来的。当{' '}<code>现价</code>{' '}达到{' '}<code>触发价</code>{' '}时，[限价委托订单]将会自动激活生效。
+                              <br />
+                              一般{' '}<code>触发价</code>{' '}要设置大于{' '}<code>触底价</code>{' '}，如果{' '}<code>现价</code>{' '}持续下跌，这样不容易触发交易，才有抄底的效果。
+                              <br />
+                              <strong>例如:</strong>
+                              <br />
+                              最低价:{' '}<code>$100</code>
+                              <br />
+                              系数:{' '}<code>1.01</code>
+                              <br />
+                              触发价:{' '}<code>$100*1.01=$101</code>
                             </Popover.Content>
                           </Popover>
                         }>
@@ -359,7 +397,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-limit-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Limit price percentage{' '}
+                      委托价{'(%)'}{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -411,7 +449,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-min-purchase-amount'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Min purchase amount{' '}
+                      最小买入金额{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -464,7 +502,7 @@ class SymbolSettingIconGridBuy extends React.Component {
                     controlId={'field-grid-buy-' + i + '-max-purchase-amount'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Max purchase amount{' '}
+                      最大买入金额{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -535,7 +573,7 @@ class SymbolSettingIconGridBuy extends React.Component {
               type='button'
               className='btn btn-sm btn-add-new-grid-trade-buy'
               onClick={this.onAddGridTrade}>
-              Add new grid trade
+              添加新的买单
             </button>
           </div>
         </div>

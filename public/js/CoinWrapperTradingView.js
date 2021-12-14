@@ -286,8 +286,7 @@ class CoinWrapperTradingView extends React.Component {
       updatedWithinAlert = (
         <div className='coin-info-column coin-info-column-title border-bottom-0 m-0 p-0'>
           <div className='bg-light text-dark w-100 px-1'>
-            The data is older than {tradingViewUseOnlyWithin} minute(s). This
-            data will not be used until it is updated.
+            数据已过期 {tradingViewUseOnlyWithin} 分钟. 再次更新之前不会被使用.
           </div>
         </div>
       );
@@ -297,7 +296,6 @@ class CoinWrapperTradingView extends React.Component {
       <div className='coin-info-sub-wrapper'>
         <div className='coin-info-column coin-info-column-title'>
           <div className='coin-info-label'>
-            Technical Analysis from{' '}
             <a
               href={
                 'https://www.tradingview.com/symbols/' + symbol + '/technicals/'
@@ -305,13 +303,13 @@ class CoinWrapperTradingView extends React.Component {
               rel='noopener noreferrer'
               target='_blank'>
               TradingView
-            </a>
+            </a>{' '}技术分析指标
           </div>
         </div>
         <div className='d-flex flex-column w-100'>
           <div className='coin-info-column coin-info-column-price'>
             <span className='coin-info-label'>
-              Summary ({tradingView.request.interval})
+              概览 ({tradingView.request.interval})
             </span>
             <HightlightChange
               className={
@@ -335,13 +333,13 @@ class CoinWrapperTradingView extends React.Component {
           <div className='coin-info-column-rows coin-info-column-price'>
             <div className='coin-info-column-row'>
               <div className='coin-info-column w-row-3 text-center text-danger'>
-                Sell
+                卖出
               </div>
               <div className='coin-info-column w-row-3 text-center text-muted'>
-                Neutral
+                中性
               </div>
               <div className='coin-info-column w-row-3 text-center text-success'>
-                Buy
+                买入
               </div>
             </div>
             <div className='coin-info-column-row'>

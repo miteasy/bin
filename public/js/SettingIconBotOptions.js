@@ -675,14 +675,15 @@ class SettingIconBotOptions extends React.Component {
                                   <option value=''>
                                     Use candle -&gt; interval
                                   </option>
-                                  <option value='1m'>1m</option>
-                                  <option value='5m'>5m</option>
-                                  <option value='15m'>15m</option>
-                                  <option value='30m'>30m</option>
-                                  <option value='1h'>1h</option>
-                                  <option value='2h'>2h</option>
-                                  <option value='4h'>4h</option>
-                                  <option value='1d'>1d</option>
+                                  <option value='1m'>1分钟</option>
+                                  <option value='3m'>3分钟</option>
+                                  <option value='5m'>5分钟</option>
+                                  <option value='15m'>15分钟</option>
+                                  <option value='30m'>30分钟</option>
+                                  <option value='1h'>1小时</option>
+                                  <option value='2h'>2小时</option>
+                                  <option value='4h'>4小时</option>
+                                  <option value='1d'>1天</option>
                                 </Form.Control>
                               </Form.Group>
                             </div>

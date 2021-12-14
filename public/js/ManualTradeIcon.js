@@ -383,7 +383,7 @@ class ManualTradeIcon extends React.Component {
             type='button'
             className='btn btn-sm btn-manual-trade mr-1'
             onClick={() => this.handleModalShow()}>
-            <i className='fas fa-shopping-bag'></i> Trade all
+            <i className='fas fa-shopping-bag'></i> 手动交易（全部）
           </button>
         </div>
         <Modal
@@ -392,30 +392,22 @@ class ManualTradeIcon extends React.Component {
           backdrop='static'
           size='xl'>
           <Modal.Header closeButton className='pt-1 pb-1'>
-            <Modal.Title>Manual trade for all symbols</Modal.Title>
+            <Modal.Title>手动交易（全部）</Modal.Title>
           </Modal.Header>
           <Modal.Body className='manual-trade'>
             <p className='d-block text-muted mb-2'>
-              In this modal, you can trade all symbols manually. To simplify the
-              order process, it only supports Market - Total buy order, Market -
-              Amount sell order.
+              在此模式中，您可以手动交易所有符号。简化订单流程，仅支持市价-总采购订单，市价-销售订单金额。
               <br />
               <br />
-              If you enter 0 on the symbol, the bot won't place an order for the
-              symbol. If you already have the last buy price, then the bot will
-              calculate average cost and re-calculate the last buy price.
+              如果在符号上输入0，则bot不会为该符号下订单象征如果您已经有了最后的购买价格，那么bot将计算平均成本并重新计算上次购买价格。
               <br />
               <br />
-              To make sure the last buy price is recorded only if the order is
-              successfully executed, the bot will monitor the order after
-              placing the buy order. This action may increase the use of API
-              weight.
+              确保仅当订单为空时才记录上次购买价格成功执行后，bot将监视订单下购买订单。此操作可能会增加API的使用量。
               {orders.side === 'sell' ? (
                 <React.Fragment>
                   <br />
                   <br />
-                  If you click the button to sell 100% of the remaining balance,
-                  it will automatically calculate 0.1% commission.
+                  如果您点击按钮将剩余余额100%出售，它将自动计算0.1%的佣金。
                 </React.Fragment>
               ) : (
                 ''
@@ -429,7 +421,7 @@ class ManualTradeIcon extends React.Component {
                   data-state-key='side'
                   data-state-value='buy'
                   onClick={e => this.handleInputChange(e)}>
-                  Buy
+                  买入
                 </Button>
                 <Button
                   variant={orders.side === 'sell' ? 'primary' : 'secondary'}
@@ -437,7 +429,7 @@ class ManualTradeIcon extends React.Component {
                   data-state-key='side'
                   data-state-value='sell'
                   onClick={e => this.handleInputChange(e)}>
-                  Sell
+                  卖出
                 </Button>
               </ButtonGroup>
             </div>
@@ -450,7 +442,7 @@ class ManualTradeIcon extends React.Component {
                         variant='primary'
                         className='w-100'
                         disabled={true}>
-                        Market
+                        市价单
                       </Button>
                     </ButtonGroup>
                   </div>
@@ -458,11 +450,11 @@ class ManualTradeIcon extends React.Component {
                   <div className='manual-trade-row manual-trade-price-wrapper mt-2'>
                     <Form.Group controlId='field-buy-price' className='mb-2'>
                       <Form.Label htmlFor='field-buy-price-input' srOnly>
-                        Price
+                        价格
                       </Form.Label>
                       <InputGroup size='sm'>
                         <InputGroup.Prepend>
-                          <InputGroup.Text>Price</InputGroup.Text>
+                          <InputGroup.Text>价格</InputGroup.Text>
                         </InputGroup.Prepend>
 
                         <FormControl
@@ -482,7 +474,7 @@ class ManualTradeIcon extends React.Component {
                         variant='primary'
                         className='w-100'
                         disabled={true}>
-                        Total
+                        总量
                       </Button>
                     </ButtonGroup>
                   </div>
@@ -510,7 +502,7 @@ class ManualTradeIcon extends React.Component {
                             </div>
                             <div className='manual-trade-row d-flex flex-row justify-content-between mt-1 mb-1'>
                               <div className='manual-trade-label'>
-                                Current Balance
+                                按余额百分比计算
                               </div>
                               <span className='manual-trade-quote-asset'>
                                 {parseFloat(quoteAssetBalance.free).toFixed(
@@ -677,7 +669,7 @@ class ManualTradeIcon extends React.Component {
                             </div>
                             <div className='manual-trade-row d-flex flex-row justify-content-between mt-1 mb-1'>
                               <div className='manual-trade-label'>
-                                Remaining Balance
+                                余额
                               </div>
                               <span className='manual-trade-quote-asset'>
                                 {parseFloat(remainingQuoteAssetBalance).toFixed(
@@ -700,7 +692,7 @@ class ManualTradeIcon extends React.Component {
                           this.handleInputChange(e);
                           this.handleFormSubmit(e);
                         }}>
-                        Buy
+                        买入
                       </button>
                     </div>
                   </div>
@@ -717,7 +709,7 @@ class ManualTradeIcon extends React.Component {
                         variant='primary'
                         className='w-100'
                         disabled={true}>
-                        Market
+                        市价单
                       </Button>
                     </ButtonGroup>
                   </div>
@@ -725,11 +717,11 @@ class ManualTradeIcon extends React.Component {
                   <div className='manual-trade-row manual-trade-price-wrapper mt-2'>
                     <Form.Group controlId='field-sell-price' className='mb-2'>
                       <Form.Label htmlFor='field-sell-price-input' srOnly>
-                        Price
+                        价格
                       </Form.Label>
                       <InputGroup size='sm'>
                         <InputGroup.Prepend>
-                          <InputGroup.Text>Price</InputGroup.Text>
+                          <InputGroup.Text>价格</InputGroup.Text>
                         </InputGroup.Prepend>
                         <FormControl
                           id='field-sell-price-input'
@@ -748,7 +740,7 @@ class ManualTradeIcon extends React.Component {
                         variant='primary'
                         className='w-100'
                         disabled={true}>
-                        Amount
+                        总量
                       </Button>
                     </ButtonGroup>
                   </div>
@@ -789,7 +781,7 @@ class ManualTradeIcon extends React.Component {
                                     <div className='manual-trade-row manual-trade-row-base-asset'>
                                       <div className='manual-trade-row d-flex flex-row justify-content-between mt-1 mb-1'>
                                         <div className='manual-trade-label'>
-                                          Remaining Balance
+                                          余额
                                         </div>
                                         <span className='manual-trade-quote-asset'>
                                           {parseFloat(remainingBalance).toFixed(
@@ -953,7 +945,7 @@ class ManualTradeIcon extends React.Component {
                         this.handleInputChange(e);
                         this.handleFormSubmit(e);
                       }}>
-                      Sell
+                      卖出
                     </button>
                   </div>
                 </div>

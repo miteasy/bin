@@ -96,14 +96,14 @@ class UnlockIcon extends React.Component {
 
         <Modal show={this.state.showModal} onHide={this.handleModalClose}>
           <Modal.Header className='pt-1 pb-1'>
-            <Modal.Title>Unlock</Modal.Title>
+            <Modal.Title>解锁</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className='lock-screen-wrapper w-100'>
               {loading ? (
                 <div className='text-center w-100'>
                   <Spinner animation='border' role='status'>
-                    <span className='sr-only'>Loading...</span>
+                    <span className='sr-only'>加载中...</span>
                   </Spinner>
                 </div>
               ) : (
@@ -117,7 +117,7 @@ class UnlockIcon extends React.Component {
 
                     <Form.Control
                       type='password'
-                      placeholder='Enter your password'
+                      placeholder='输入密码'
                       required
                       defaultValue={password}
                       onChange={this.handlePasswordChange}
@@ -145,14 +145,14 @@ class UnlockIcon extends React.Component {
                   variant='secondary'
                   size='sm'
                   onClick={this.handleModalClose}>
-                  Close
+                  关闭
                 </Button>
                 <Button
                   type='button'
                   variant='primary'
                   size='sm'
                   onClick={this.handleFormSubmit}>
-                  Unlock
+                  解锁
                 </Button>
               </React.Fragment>
             ) : (

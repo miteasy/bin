@@ -108,7 +108,7 @@ class DustTransferIcon extends React.Component {
             type='button'
             className='btn btn-sm btn-link btn-dust-transfer'
             onClick={() => this.handleModalShow()}>
-            Convert small balance to BNB
+            小额资产兑换成BNB
           </button>
         </div>
         <Modal
@@ -117,26 +117,24 @@ class DustTransferIcon extends React.Component {
           backdrop='static'
           size='xl'>
           <Modal.Header closeButton className='pt-1 pb-1'>
-            <Modal.Title>Convert small balance to BNB</Modal.Title>
+            <Modal.Title>小额资产兑换成BNB</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p className='d-block text-muted mb-2'>
-              You can convert balances with a valuation below 0.001 BTC to BNB
-              once every 6 hours. It is not currently possible to convert
-              delisted coins.
+            您可以将估值低于0.001BTC的余额转换为BNB每6小时一次。目前无法转换退市的硬币。
             </p>
             <div className='dust-transfer-symbols-parent-wrappers'>
               {loading ? (
                 <div className='text-center w-100'>
                   <Spinner animation='border' role='status'>
-                    <span className='sr-only'>Loading...</span>
+                    <span className='sr-only'>兑换中...</span>
                   </Spinner>
                 </div>
               ) : (
                 <div className='dust-transfer-symbols-wrappers'>
                   {_.isEmpty(symbols) ? (
                     <div className='text-center'>
-                      There is no asset to convert.
+                      没有可兑换的资产
                     </div>
                   ) : (
                     <React.Fragment>
@@ -148,7 +146,7 @@ class DustTransferIcon extends React.Component {
                           type='button'
                           className='btn btn-sm btn-primary w-100 btn-dust-transfer-execute'
                           onClick={() => this.executeDustTransfer()}>
-                          Convert
+                          立即兑换
                         </button>
                       </div>
                     </React.Fragment>

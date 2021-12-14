@@ -125,7 +125,7 @@ class SymbolSettingIconGridSell extends React.Component {
           isValid = false;
           v.triggerPercentage = false;
           v.messages.push(
-            `The trigger percentage cannot be lower than the previous trigger percentage.`
+            `当前触顶价百分比不能低于上一个触顶价百分比。；The trigger percentage cannot be lower than the previous trigger percentage.`
           );
         }
       }
@@ -135,7 +135,7 @@ class SymbolSettingIconGridSell extends React.Component {
         isValid = false;
         v.limitPercentage = false;
         v.messages.push(
-          `The limit price percentage cannot be equal or over the stop percentage.`
+          `委托价百分比不能大于等于触发价百分比；The limit price percentage cannot be equal or over the stop percentage.`
         );
       }
 
@@ -144,14 +144,14 @@ class SymbolSettingIconGridSell extends React.Component {
         isValid = false;
         v.quantityPercentage = false;
         v.messages.push(
-          `The quantity percentage is cannot be equal or less than 0.`
+          `数量百分比不能等于或小于0。`
         );
       }
       // The sell quantity percentage cannot be more than 1.
       if (parseFloat(grid.quantityPercentage) > 1) {
         isValid = false;
         v.quantityPercentage = false;
-        v.messages.push(`The quantity percentage is cannot be more than 1.`);
+        v.messages.push(`数量百分比不能大于1。`);
       }
 
       // If the grid trade is the last grade trade
@@ -159,7 +159,7 @@ class SymbolSettingIconGridSell extends React.Component {
         // If the last sell quantity percentage is less than 1,
         if (parseFloat(grid.quantityPercentage) < 1) {
           v.messages.push(
-            `The quantity percentage is less than 1. The bot will not sell all the quantities you have.`
+            `设置卖出比例小于1，机器人不会卖出你所有的币。`
           );
         }
         // If the last sell quantity percentage is 1, the new grid trade cannot be added.
@@ -199,7 +199,7 @@ class SymbolSettingIconGridSell extends React.Component {
         <React.Fragment key={'grid-row-sell-' + i}>
           <tr>
             <td className='align-middle font-weight-bold' width='90%'>
-              Grid Trade #{i + 1}
+              卖单 #{i + 1}
             </td>
             <td className='align-middle text-center'>
               {i !== 0 && grid.executed !== true ? (
@@ -222,8 +222,8 @@ class SymbolSettingIconGridSell extends React.Component {
                     controlId={'field-grid-sell-' + i + '-trigger-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Trigger percentage{' '}
-                      <strong>based on the last buy price</strong>{' '}
+                      触顶价{'(%)'}{' '}
+                      <strong>基于最后买入价</strong>{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -276,7 +276,7 @@ class SymbolSettingIconGridSell extends React.Component {
                     controlId={'field-grid-sell-' + i + '-stop-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Stop price percentage{' '}
+                      触发价{'(%)'}{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -329,7 +329,7 @@ class SymbolSettingIconGridSell extends React.Component {
                     controlId={'field-grid-sell-' + i + '-limit-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Limit price percentage{' '}
+                      委托价{'(%)'}{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -381,7 +381,7 @@ class SymbolSettingIconGridSell extends React.Component {
                     controlId={'field-grid-sell-' + i + '-quantity-percentage'}
                     className='mb-2'>
                     <Form.Label className='mb-0'>
-                      Sell quantity percentage{' '}
+                      卖出比例{'(%)'}{' '}
                       <OverlayTrigger
                         trigger='click'
                         key={
@@ -457,7 +457,7 @@ class SymbolSettingIconGridSell extends React.Component {
               disabled={!canAddNewGridTrade}
               className='btn btn-sm btn-add-new-grid-trade-sell'
               onClick={this.onAddGridTrade}>
-              Add new grid trade
+              添加新的卖单
             </button>
           </div>
         </div>

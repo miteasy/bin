@@ -19,45 +19,45 @@ class CoinWrapperAction extends React.Component {
     let label;
     switch (action) {
       case 'buy':
-        label = 'Buy';
+        label = '买入';
         break;
       case 'buy-temporary-disabled':
-        label = 'Temporary disabled';
+        label = '暂停买入';
         break;
       case 'buy-order-checking':
-        label = 'Checking for buy order';
+        label = '核对买单';
         break;
       case 'buy-order-wait':
-        label = 'Wait for buy order';
+        label = '等待买入';
         break;
       case 'sell':
-        label = 'Sell';
+        label = '卖出';
         break;
       case 'sell-temporary-disabled':
-        label = 'Temporary disabled';
+        label = '暂停卖出';
         break;
       case 'sell-stop-loss':
-        label = 'Selling due to stop-loss';
+        label = '止损卖出';
         break;
       case 'sell-order-checking':
-        label = 'Checking for sell order';
+        label = '核对卖单';
         break;
       case 'sell-order-wait':
-        label = 'Wait for sell order';
+        label = '等待卖出';
         break;
       case 'sell-wait':
-        label = 'Wait';
+        label = '等待中';
         break;
       default:
-        label = 'Wait';
+        label = '等待中';
     }
 
     if (isLocked) {
-      label = 'Locked';
+      label = '已锁定';
     }
 
     if (isActionDisabled.isDisabled) {
-      label = `Disabled by ${isActionDisabled.disabledBy}`;
+      label = `已被${isActionDisabled.disabledBy}禁用`;
     }
 
     let renderOverrideAction = '';
@@ -67,8 +67,8 @@ class CoinWrapperAction extends React.Component {
           <div
             className='bg-light text-dark w-100 px-1'
             title={overrideData.actionAt}>
-            Action <strong>{overrideData.action}</strong> will be executed{' '}
-            {moment(overrideData.actionAt).fromNow()}, triggered by{' '}
+            任务 <strong>{overrideData.action}</strong> 将会被执行{' '}
+            {moment(overrideData.actionAt).fromNow()}, 触发于{' '}
             {overrideData.triggeredBy}.
           </div>
         </div>
@@ -79,7 +79,7 @@ class CoinWrapperAction extends React.Component {
       <div className='coin-info-sub-wrapper'>
         <div className='coin-info-column coin-info-column-title border-bottom-0 mb-0 pb-0'>
           <div className='coin-info-label w-40'>
-            Action -{' '}
+            执行状态 -{' '}
             <span className='coin-info-value'>
               {moment(buy.updatedAt).format('HH:mm:ss')}
             </span>
@@ -106,8 +106,8 @@ class CoinWrapperAction extends React.Component {
                 ) : (
                   ''
                 )}
-                ({moment.duration(isActionDisabled.ttl, 'seconds').humanize()}{' '}
-                left){' '}
+                ({moment.duration(isActionDisabled.ttl, '分钟').humanize()}{' '}
+                过去了){' '}
               </div>
             ) : (
               ''

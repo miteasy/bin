@@ -127,7 +127,7 @@ class FilterIcon extends React.Component {
           onHide={() => this.handleModalClose('filter')}
           size='xl'>
           <Modal.Header closeButton className='pt-1 pb-1'>
-            <Modal.Title>Filter</Modal.Title>
+            <Modal.Title>筛选</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Accordion defaultActiveKey='0'>
@@ -138,7 +138,7 @@ class FilterIcon extends React.Component {
                     variant='link'
                     eventKey='0'
                     className='p-0 fs-7 text-uppercase'>
-                    Search symbols
+                    通过符号搜索
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey='0'>
@@ -164,7 +164,7 @@ class FilterIcon extends React.Component {
                     variant='link'
                     eventKey='0'
                     className='p-0 fs-7 text-uppercase'>
-                    Sort symbols
+                    通过符号排序
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey='0'>
@@ -180,14 +180,14 @@ class FilterIcon extends React.Component {
               variant='secondary'
               size='sm'
               onClick={() => this.handleModalClose('filter')}>
-              Close
+              关闭
             </Button>
             <Button
               type='button'
               variant='danger'
               size='sm'
               onClick={this.handleApply}>
-              Apply
+              确认
             </Button>
           </Modal.Footer>
         </Modal>
